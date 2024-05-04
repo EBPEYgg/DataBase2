@@ -46,16 +46,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="View\GuestsListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="View\GuestsListForm.Designer.cs">
+      <DependentUpon>GuestsListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="View\OrdersListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OrdersListForm.Designer.cs">
+      <DependentUpon>OrdersListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\RoomsListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\RoomsListForm.Designer.cs">
+      <DependentUpon>RoomsListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StaffListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StaffListForm.Designer.cs">
+      <DependentUpon>StaffListForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\GuestsListForm.resx">
+      <DependentUpon>GuestsListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -65,7 +92,17 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\OrdersListForm.resx">
+      <DependentUpon>OrdersListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\RoomsListForm.resx">
+      <DependentUpon>RoomsListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StaffListForm.resx">
+      <DependentUpon>StaffListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -78,6 +115,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\apartament_key_icon_128x128.png" />
+    <Content Include="Resources\exit_icon_128x128.png" />
+    <Content Include="Resources\hotel_icon.ico" />
+    <Content Include="Resources\hotel_icon_128x128.png" />
+    <Content Include="Resources\human_icon_128x128.png" />
+    <Content Include="Resources\information_icon_128x128.png" />
+    <Content Include="Resources\order_icon_100x100.png" />
+    <Content Include="Resources\staff_icon_100x100.png" />
+    <Content Include="Resources\staff_icon_128x128.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
