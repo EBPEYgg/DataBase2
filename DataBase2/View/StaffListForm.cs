@@ -1,11 +1,19 @@
 ﻿using System.Windows.Forms;
+using System;
 
 namespace DataBase2.View
 {
     public partial class StaffListForm : Form
     {
+        /// <summary>
+        /// Экземпляр формы <see cref="StaffListForm"/>.
+        /// </summary>
         private static StaffListForm form;
 
+        /// <summary>
+        /// Возвращает экземпляр формы <see cref="StaffListForm"/>, 
+        /// если она уже существует, иначе создает новую форму.
+        /// </summary>
         public static StaffListForm staffListForm
         {
             get
@@ -18,31 +26,36 @@ namespace DataBase2.View
             }
         }
 
+        /// <summary>
+        /// Конструктор класса <see cref="StaffListForm"/>.
+        /// </summary>
         public StaffListForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Метод, который отображает форму и переводит на нее фокус.
+        /// </summary>
         public void ShowForm()
         {
             Show();
             Activate();
         }
 
-        private void персоналBindingNavigatorSaveItem_Click(object sender, System.EventArgs e)
+        private void StaffBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.персоналBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.hotelDataSet);
+            this.StaffBindingSource.EndEdit();
+            this.StaffTableAdapterManager.UpdateAll(this.hotelDataSet);
 
         }
 
-        private void StaffListForm_Load(object sender, System.EventArgs e)
+        private void StaffListForm_Load(object sender, EventArgs e)
         {
             // Данная строка кода позволяет загрузить данные в таблицу "hotelDataSet.Персонал".
             // При необходимости она может быть перемещена или удалена.
-            this.персоналTableAdapter.Fill(this.hotelDataSet.Персонал);
-
+            this.StaffTableAdapter.Fill(this.hotelDataSet.Персонал);
         }
     }
 }

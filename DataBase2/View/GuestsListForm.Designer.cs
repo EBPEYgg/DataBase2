@@ -36,10 +36,10 @@
             System.Windows.Forms.Label номер_телефонаLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GuestsListForm));
             this.hotelDataSet = new DataBase2.HotelDataSet();
-            this.гостьBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.гостьTableAdapter = new DataBase2.HotelDataSetTableAdapters.ГостьTableAdapter();
-            this.tableAdapterManager = new DataBase2.HotelDataSetTableAdapters.TableAdapterManager();
-            this.гостьBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.GuestsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.GuestsTableAdapter = new DataBase2.HotelDataSetTableAdapters.ГостьTableAdapter();
+            this.GuestsTableAdapterManager = new DataBase2.HotelDataSetTableAdapters.TableAdapterManager();
+            this.GuestsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
@@ -63,9 +63,9 @@
             дата_выездаLabel = new System.Windows.Forms.Label();
             номер_телефонаLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.гостьBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.гостьBindingNavigator)).BeginInit();
-            this.гостьBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GuestsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GuestsBindingNavigator)).BeginInit();
+            this.GuestsBindingNavigator.SuspendLayout();
             this.SuspendLayout();
             // 
             // idLabel
@@ -118,32 +118,33 @@
             this.hotelDataSet.DataSetName = "HotelDataSet";
             this.hotelDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // гостьBindingSource
+            // GuestsBindingSource
             // 
-            this.гостьBindingSource.DataMember = "Гость";
-            this.гостьBindingSource.DataSource = this.hotelDataSet;
+            this.GuestsBindingSource.DataMember = "Гость";
+            this.GuestsBindingSource.DataSource = this.hotelDataSet;
             // 
-            // гостьTableAdapter
+            // GuestsTableAdapter
             // 
-            this.гостьTableAdapter.ClearBeforeFill = true;
+            this.GuestsTableAdapter.ClearBeforeFill = true;
             // 
-            // tableAdapterManager
+            // GuestsTableAdapterManager
             // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.UpdateOrder = DataBase2.HotelDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.Гость_комнатаTableAdapter = null;
-            this.tableAdapterManager.ГостьTableAdapter = this.гостьTableAdapter;
-            this.tableAdapterManager.ЗаказTableAdapter = null;
-            this.tableAdapterManager.КомнатаTableAdapter = null;
-            this.tableAdapterManager.ПерсоналTableAdapter = null;
+            this.GuestsTableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.GuestsTableAdapterManager.UpdateOrder = DataBase2.HotelDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.GuestsTableAdapterManager.Гость_комнатаTableAdapter = null;
+            this.GuestsTableAdapterManager.ГостьTableAdapter = this.GuestsTableAdapter;
+            this.GuestsTableAdapterManager.ЗаказTableAdapter = null;
+            this.GuestsTableAdapterManager.КомнатаTableAdapter = null;
+            this.GuestsTableAdapterManager.ПерсоналTableAdapter = null;
             // 
-            // гостьBindingNavigator
+            // GuestsBindingNavigator
             // 
-            this.гостьBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.гостьBindingNavigator.BindingSource = this.гостьBindingSource;
-            this.гостьBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.гостьBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.гостьBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.GuestsBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.GuestsBindingNavigator.BindingSource = this.GuestsBindingSource;
+            this.GuestsBindingNavigator.CountItem = this.bindingNavigatorCountItem;
+            this.GuestsBindingNavigator.CountItemFormat = "из {0}";
+            this.GuestsBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.GuestsBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorSeparator,
@@ -156,16 +157,16 @@
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.гостьBindingNavigatorSaveItem});
-            this.гостьBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.гостьBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.гостьBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.гостьBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.гостьBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.гостьBindingNavigator.Name = "гостьBindingNavigator";
-            this.гостьBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.гостьBindingNavigator.Size = new System.Drawing.Size(800, 25);
-            this.гостьBindingNavigator.TabIndex = 0;
-            this.гостьBindingNavigator.Text = "bindingNavigator1";
+            this.GuestsBindingNavigator.Location = new System.Drawing.Point(0, 0);
+            this.GuestsBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.GuestsBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.GuestsBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.GuestsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.GuestsBindingNavigator.Name = "GuestsBindingNavigator";
+            this.GuestsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+            this.GuestsBindingNavigator.Size = new System.Drawing.Size(800, 25);
+            this.GuestsBindingNavigator.TabIndex = 0;
+            this.GuestsBindingNavigator.Text = "bindingNavigator1";
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -179,8 +180,8 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(43, 22);
-            this.bindingNavigatorCountItem.Text = "для {0}";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(36, 22);
+            this.bindingNavigatorCountItem.Text = "из {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Общее число элементов";
             // 
             // bindingNavigatorDeleteItem
@@ -219,6 +220,7 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Положение";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -259,11 +261,11 @@
             this.гостьBindingNavigatorSaveItem.Name = "гостьBindingNavigatorSaveItem";
             this.гостьBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.гостьBindingNavigatorSaveItem.Text = "Сохранить данные";
-            this.гостьBindingNavigatorSaveItem.Click += new System.EventHandler(this.гостьBindingNavigatorSaveItem_Click);
+            this.гостьBindingNavigatorSaveItem.Click += new System.EventHandler(this.GuestsBindingNavigatorSaveItem_Click);
             // 
             // idTextBox
             // 
-            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.гостьBindingSource, "id", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N0"));
+            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.GuestsBindingSource, "id", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N0"));
             this.idTextBox.Location = new System.Drawing.Point(304, 135);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.ReadOnly = true;
@@ -272,7 +274,7 @@
             // 
             // фИОTextBox
             // 
-            this.фИОTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.гостьBindingSource, "ФИО", true));
+            this.фИОTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.GuestsBindingSource, "ФИО", true));
             this.фИОTextBox.Location = new System.Drawing.Point(304, 161);
             this.фИОTextBox.Name = "фИОTextBox";
             this.фИОTextBox.Size = new System.Drawing.Size(200, 20);
@@ -280,7 +282,7 @@
             // 
             // дата_заездаDateTimePicker
             // 
-            this.дата_заездаDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.гостьBindingSource, "Дата_заезда", true));
+            this.дата_заездаDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.GuestsBindingSource, "Дата_заезда", true));
             this.дата_заездаDateTimePicker.Location = new System.Drawing.Point(304, 187);
             this.дата_заездаDateTimePicker.Name = "дата_заездаDateTimePicker";
             this.дата_заездаDateTimePicker.Size = new System.Drawing.Size(200, 20);
@@ -288,7 +290,7 @@
             // 
             // дата_выездаDateTimePicker
             // 
-            this.дата_выездаDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.гостьBindingSource, "Дата_выезда", true));
+            this.дата_выездаDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.GuestsBindingSource, "Дата_выезда", true));
             this.дата_выездаDateTimePicker.Location = new System.Drawing.Point(304, 213);
             this.дата_выездаDateTimePicker.Name = "дата_выездаDateTimePicker";
             this.дата_выездаDateTimePicker.Size = new System.Drawing.Size(200, 20);
@@ -296,7 +298,7 @@
             // 
             // номер_телефонаTextBox
             // 
-            this.номер_телефонаTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.гостьBindingSource, "Номер_телефона", true));
+            this.номер_телефонаTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.GuestsBindingSource, "Номер_телефона", true));
             this.номер_телефонаTextBox.Location = new System.Drawing.Point(304, 239);
             this.номер_телефонаTextBox.Name = "номер_телефонаTextBox";
             this.номер_телефонаTextBox.Size = new System.Drawing.Size(200, 20);
@@ -317,16 +319,16 @@
             this.Controls.Add(this.дата_выездаDateTimePicker);
             this.Controls.Add(номер_телефонаLabel);
             this.Controls.Add(this.номер_телефонаTextBox);
-            this.Controls.Add(this.гостьBindingNavigator);
+            this.Controls.Add(this.GuestsBindingNavigator);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GuestsListForm";
             this.Text = "Guests";
             this.Load += new System.EventHandler(this.GuestsListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.hotelDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.гостьBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.гостьBindingNavigator)).EndInit();
-            this.гостьBindingNavigator.ResumeLayout(false);
-            this.гостьBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GuestsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GuestsBindingNavigator)).EndInit();
+            this.GuestsBindingNavigator.ResumeLayout(false);
+            this.GuestsBindingNavigator.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,10 +337,10 @@
         #endregion
 
         private HotelDataSet hotelDataSet;
-        private System.Windows.Forms.BindingSource гостьBindingSource;
-        private HotelDataSetTableAdapters.ГостьTableAdapter гостьTableAdapter;
-        private HotelDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingNavigator гостьBindingNavigator;
+        private System.Windows.Forms.BindingSource GuestsBindingSource;
+        private HotelDataSetTableAdapters.ГостьTableAdapter GuestsTableAdapter;
+        private HotelDataSetTableAdapters.TableAdapterManager GuestsTableAdapterManager;
+        private System.Windows.Forms.BindingNavigator GuestsBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;

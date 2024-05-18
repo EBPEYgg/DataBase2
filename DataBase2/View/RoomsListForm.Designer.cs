@@ -40,10 +40,10 @@
             System.Windows.Forms.Label изображениеLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoomsListForm));
             this.hotelDataSet = new DataBase2.HotelDataSet();
-            this.комнатаBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.комнатаTableAdapter = new DataBase2.HotelDataSetTableAdapters.КомнатаTableAdapter();
-            this.tableAdapterManager = new DataBase2.HotelDataSetTableAdapters.TableAdapterManager();
-            this.комнатаBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.RoomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.RoomsTableAdapter = new DataBase2.HotelDataSetTableAdapters.КомнатаTableAdapter();
+            this.RoomsTableAdapterManager = new DataBase2.HotelDataSetTableAdapters.TableAdapterManager();
+            this.RoomsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
@@ -55,7 +55,7 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.комнатаBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.RoomsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.номер_комнатыTextBox = new System.Windows.Forms.TextBox();
             this.id_гостяTextBox = new System.Windows.Forms.TextBox();
             this.фИО_арендатораTextBox = new System.Windows.Forms.TextBox();
@@ -64,7 +64,7 @@
             this.название_обслуживающей_организацииTextBox = new System.Windows.Forms.TextBox();
             this.частота_уборкиTextBox = new System.Windows.Forms.TextBox();
             this.услуга_все_включеноCheckBox = new System.Windows.Forms.CheckBox();
-            this.изображениеPictureBox = new System.Windows.Forms.PictureBox();
+            this.PhotoPictureBox = new System.Windows.Forms.PictureBox();
             this.OpenPhotoButton = new System.Windows.Forms.Button();
             this.PhotoOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
             номер_комнатыLabel = new System.Windows.Forms.Label();
@@ -77,10 +77,10 @@
             услуга_все_включеноLabel = new System.Windows.Forms.Label();
             изображениеLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.комнатаBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.комнатаBindingNavigator)).BeginInit();
-            this.комнатаBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.изображениеPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RoomsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RoomsBindingNavigator)).BeginInit();
+            this.RoomsBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PhotoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // номер_комнатыLabel
@@ -169,33 +169,33 @@
             this.hotelDataSet.DataSetName = "HotelDataSet";
             this.hotelDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // комнатаBindingSource
+            // RoomsBindingSource
             // 
-            this.комнатаBindingSource.DataMember = "Комната";
-            this.комнатаBindingSource.DataSource = this.hotelDataSet;
+            this.RoomsBindingSource.DataMember = "Комната";
+            this.RoomsBindingSource.DataSource = this.hotelDataSet;
             // 
-            // комнатаTableAdapter
+            // RoomsTableAdapter
             // 
-            this.комнатаTableAdapter.ClearBeforeFill = true;
+            this.RoomsTableAdapter.ClearBeforeFill = true;
             // 
-            // tableAdapterManager
+            // RoomsTableAdapterManager
             // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.UpdateOrder = DataBase2.HotelDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.Гость_комнатаTableAdapter = null;
-            this.tableAdapterManager.ГостьTableAdapter = null;
-            this.tableAdapterManager.ЗаказTableAdapter = null;
-            this.tableAdapterManager.КомнатаTableAdapter = this.комнатаTableAdapter;
-            this.tableAdapterManager.ПерсоналTableAdapter = null;
+            this.RoomsTableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.RoomsTableAdapterManager.UpdateOrder = DataBase2.HotelDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.RoomsTableAdapterManager.Гость_комнатаTableAdapter = null;
+            this.RoomsTableAdapterManager.ГостьTableAdapter = null;
+            this.RoomsTableAdapterManager.ЗаказTableAdapter = null;
+            this.RoomsTableAdapterManager.КомнатаTableAdapter = this.RoomsTableAdapter;
+            this.RoomsTableAdapterManager.ПерсоналTableAdapter = null;
             // 
-            // комнатаBindingNavigator
+            // RoomsBindingNavigator
             // 
-            this.комнатаBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.комнатаBindingNavigator.BindingSource = this.комнатаBindingSource;
-            this.комнатаBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.комнатаBindingNavigator.CountItemFormat = "из {0}";
-            this.комнатаBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.комнатаBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.RoomsBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.RoomsBindingNavigator.BindingSource = this.RoomsBindingSource;
+            this.RoomsBindingNavigator.CountItem = this.bindingNavigatorCountItem;
+            this.RoomsBindingNavigator.CountItemFormat = "из {0}";
+            this.RoomsBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.RoomsBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorSeparator,
@@ -207,17 +207,17 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.комнатаBindingNavigatorSaveItem});
-            this.комнатаBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.комнатаBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.комнатаBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.комнатаBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.комнатаBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.комнатаBindingNavigator.Name = "комнатаBindingNavigator";
-            this.комнатаBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.комнатаBindingNavigator.Size = new System.Drawing.Size(800, 25);
-            this.комнатаBindingNavigator.TabIndex = 0;
-            this.комнатаBindingNavigator.Text = "bindingNavigator1";
+            this.RoomsBindingNavigatorSaveItem});
+            this.RoomsBindingNavigator.Location = new System.Drawing.Point(0, 0);
+            this.RoomsBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.RoomsBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.RoomsBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.RoomsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.RoomsBindingNavigator.Name = "RoomsBindingNavigator";
+            this.RoomsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+            this.RoomsBindingNavigator.Size = new System.Drawing.Size(800, 25);
+            this.RoomsBindingNavigator.TabIndex = 0;
+            this.RoomsBindingNavigator.Text = "bindingNavigator1";
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -305,18 +305,18 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // комнатаBindingNavigatorSaveItem
+            // RoomsBindingNavigatorSaveItem
             // 
-            this.комнатаBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.комнатаBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("комнатаBindingNavigatorSaveItem.Image")));
-            this.комнатаBindingNavigatorSaveItem.Name = "комнатаBindingNavigatorSaveItem";
-            this.комнатаBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.комнатаBindingNavigatorSaveItem.Text = "Сохранить данные";
-            this.комнатаBindingNavigatorSaveItem.Click += new System.EventHandler(this.комнатаBindingNavigatorSaveItem_Click);
+            this.RoomsBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.RoomsBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("RoomsBindingNavigatorSaveItem.Image")));
+            this.RoomsBindingNavigatorSaveItem.Name = "RoomsBindingNavigatorSaveItem";
+            this.RoomsBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.RoomsBindingNavigatorSaveItem.Text = "Сохранить данные";
+            this.RoomsBindingNavigatorSaveItem.Click += new System.EventHandler(this.RoomsBindingNavigatorSaveItem_Click);
             // 
             // номер_комнатыTextBox
             // 
-            this.номер_комнатыTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.комнатаBindingSource, "Номер_комнаты", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N0"));
+            this.номер_комнатыTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.RoomsBindingSource, "Номер_комнаты", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N0"));
             this.номер_комнатыTextBox.Location = new System.Drawing.Point(210, 85);
             this.номер_комнатыTextBox.Name = "номер_комнатыTextBox";
             this.номер_комнатыTextBox.ReadOnly = true;
@@ -325,7 +325,7 @@
             // 
             // id_гостяTextBox
             // 
-            this.id_гостяTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.комнатаBindingSource, "id_гостя", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N0"));
+            this.id_гостяTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.RoomsBindingSource, "id_гостя", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N0"));
             this.id_гостяTextBox.Location = new System.Drawing.Point(210, 111);
             this.id_гостяTextBox.Name = "id_гостяTextBox";
             this.id_гостяTextBox.Size = new System.Drawing.Size(164, 20);
@@ -333,7 +333,7 @@
             // 
             // фИО_арендатораTextBox
             // 
-            this.фИО_арендатораTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.комнатаBindingSource, "ФИО_арендатора", true));
+            this.фИО_арендатораTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.RoomsBindingSource, "ФИО_арендатора", true));
             this.фИО_арендатораTextBox.Location = new System.Drawing.Point(210, 137);
             this.фИО_арендатораTextBox.Name = "фИО_арендатораTextBox";
             this.фИО_арендатораTextBox.Size = new System.Drawing.Size(164, 20);
@@ -341,7 +341,7 @@
             // 
             // тип_комнатыTextBox
             // 
-            this.тип_комнатыTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.комнатаBindingSource, "Тип_комнаты", true));
+            this.тип_комнатыTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.RoomsBindingSource, "Тип_комнаты", true));
             this.тип_комнатыTextBox.Location = new System.Drawing.Point(210, 163);
             this.тип_комнатыTextBox.Name = "тип_комнатыTextBox";
             this.тип_комнатыTextBox.Size = new System.Drawing.Size(164, 20);
@@ -349,7 +349,7 @@
             // 
             // статус_комнатыTextBox
             // 
-            this.статус_комнатыTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.комнатаBindingSource, "Статус_комнаты", true));
+            this.статус_комнатыTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.RoomsBindingSource, "Статус_комнаты", true));
             this.статус_комнатыTextBox.Location = new System.Drawing.Point(210, 189);
             this.статус_комнатыTextBox.Name = "статус_комнатыTextBox";
             this.статус_комнатыTextBox.Size = new System.Drawing.Size(164, 20);
@@ -357,7 +357,7 @@
             // 
             // название_обслуживающей_организацииTextBox
             // 
-            this.название_обслуживающей_организацииTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.комнатаBindingSource, "Название_обслуживающей_организации", true));
+            this.название_обслуживающей_организацииTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.RoomsBindingSource, "Название_обслуживающей_организации", true));
             this.название_обслуживающей_организацииTextBox.Location = new System.Drawing.Point(210, 215);
             this.название_обслуживающей_организацииTextBox.Name = "название_обслуживающей_организацииTextBox";
             this.название_обслуживающей_организацииTextBox.Size = new System.Drawing.Size(164, 20);
@@ -365,7 +365,7 @@
             // 
             // частота_уборкиTextBox
             // 
-            this.частота_уборкиTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.комнатаBindingSource, "Частота_уборки", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N0"));
+            this.частота_уборкиTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.RoomsBindingSource, "Частота_уборки", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N0"));
             this.частота_уборкиTextBox.Location = new System.Drawing.Point(210, 241);
             this.частота_уборкиTextBox.Name = "частота_уборкиTextBox";
             this.частота_уборкиTextBox.Size = new System.Drawing.Size(164, 20);
@@ -373,22 +373,22 @@
             // 
             // услуга_все_включеноCheckBox
             // 
-            this.услуга_все_включеноCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.комнатаBindingSource, "Услуга_все_включено", true));
+            this.услуга_все_включеноCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.RoomsBindingSource, "Услуга_все_включено", true));
             this.услуга_все_включеноCheckBox.Location = new System.Drawing.Point(210, 267);
             this.услуга_все_включеноCheckBox.Name = "услуга_все_включеноCheckBox";
             this.услуга_все_включеноCheckBox.Size = new System.Drawing.Size(15, 24);
             this.услуга_все_включеноCheckBox.TabIndex = 16;
             this.услуга_все_включеноCheckBox.UseVisualStyleBackColor = true;
             // 
-            // изображениеPictureBox
+            // PhotoPictureBox
             // 
-            this.изображениеPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.комнатаBindingSource, "Изображение", true));
-            this.изображениеPictureBox.Location = new System.Drawing.Point(494, 88);
-            this.изображениеPictureBox.Name = "изображениеPictureBox";
-            this.изображениеPictureBox.Size = new System.Drawing.Size(266, 197);
-            this.изображениеPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.изображениеPictureBox.TabIndex = 18;
-            this.изображениеPictureBox.TabStop = false;
+            this.PhotoPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.RoomsBindingSource, "Изображение", true));
+            this.PhotoPictureBox.Location = new System.Drawing.Point(494, 88);
+            this.PhotoPictureBox.Name = "PhotoPictureBox";
+            this.PhotoPictureBox.Size = new System.Drawing.Size(266, 197);
+            this.PhotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PhotoPictureBox.TabIndex = 18;
+            this.PhotoPictureBox.TabStop = false;
             // 
             // OpenPhotoButton
             // 
@@ -411,7 +411,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.OpenPhotoButton);
             this.Controls.Add(изображениеLabel);
-            this.Controls.Add(this.изображениеPictureBox);
+            this.Controls.Add(this.PhotoPictureBox);
             this.Controls.Add(номер_комнатыLabel);
             this.Controls.Add(this.номер_комнатыTextBox);
             this.Controls.Add(id_гостяLabel);
@@ -428,17 +428,17 @@
             this.Controls.Add(this.частота_уборкиTextBox);
             this.Controls.Add(услуга_все_включеноLabel);
             this.Controls.Add(this.услуга_все_включеноCheckBox);
-            this.Controls.Add(this.комнатаBindingNavigator);
+            this.Controls.Add(this.RoomsBindingNavigator);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RoomsListForm";
             this.Text = "Rooms";
             this.Load += new System.EventHandler(this.RoomsListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.hotelDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.комнатаBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.комнатаBindingNavigator)).EndInit();
-            this.комнатаBindingNavigator.ResumeLayout(false);
-            this.комнатаBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.изображениеPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RoomsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RoomsBindingNavigator)).EndInit();
+            this.RoomsBindingNavigator.ResumeLayout(false);
+            this.RoomsBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PhotoPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -447,10 +447,10 @@
         #endregion
 
         private HotelDataSet hotelDataSet;
-        private System.Windows.Forms.BindingSource комнатаBindingSource;
-        private HotelDataSetTableAdapters.КомнатаTableAdapter комнатаTableAdapter;
-        private HotelDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingNavigator комнатаBindingNavigator;
+        private System.Windows.Forms.BindingSource RoomsBindingSource;
+        private HotelDataSetTableAdapters.КомнатаTableAdapter RoomsTableAdapter;
+        private HotelDataSetTableAdapters.TableAdapterManager RoomsTableAdapterManager;
+        private System.Windows.Forms.BindingNavigator RoomsBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
@@ -462,7 +462,7 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton комнатаBindingNavigatorSaveItem;
+        private System.Windows.Forms.ToolStripButton RoomsBindingNavigatorSaveItem;
         private System.Windows.Forms.TextBox номер_комнатыTextBox;
         private System.Windows.Forms.TextBox id_гостяTextBox;
         private System.Windows.Forms.TextBox фИО_арендатораTextBox;
@@ -471,7 +471,7 @@
         private System.Windows.Forms.TextBox название_обслуживающей_организацииTextBox;
         private System.Windows.Forms.TextBox частота_уборкиTextBox;
         private System.Windows.Forms.CheckBox услуга_все_включеноCheckBox;
-        private System.Windows.Forms.PictureBox изображениеPictureBox;
+        private System.Windows.Forms.PictureBox PhotoPictureBox;
         private System.Windows.Forms.Button OpenPhotoButton;
         private System.Windows.Forms.OpenFileDialog PhotoOpenFileDialog;
     }

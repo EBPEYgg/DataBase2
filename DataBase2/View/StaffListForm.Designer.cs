@@ -37,10 +37,10 @@
             System.Windows.Forms.Label трудовой_стажLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffListForm));
             this.hotelDataSet = new DataBase2.HotelDataSet();
-            this.персоналBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.персоналTableAdapter = new DataBase2.HotelDataSetTableAdapters.ПерсоналTableAdapter();
-            this.tableAdapterManager = new DataBase2.HotelDataSetTableAdapters.TableAdapterManager();
-            this.персоналBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.StaffBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.StaffTableAdapter = new DataBase2.HotelDataSetTableAdapters.ПерсоналTableAdapter();
+            this.StaffTableAdapterManager = new DataBase2.HotelDataSetTableAdapters.TableAdapterManager();
+            this.StaffBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
@@ -52,7 +52,7 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.персоналBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.StaffBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.idTextBox = new System.Windows.Forms.TextBox();
             this.фИОTextBox = new System.Windows.Forms.TextBox();
             this.зарплатаTextBox = new System.Windows.Forms.TextBox();
@@ -66,9 +66,9 @@
             должностьLabel = new System.Windows.Forms.Label();
             трудовой_стажLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.персоналBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.персоналBindingNavigator)).BeginInit();
-            this.персоналBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.StaffBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StaffBindingNavigator)).BeginInit();
+            this.StaffBindingNavigator.SuspendLayout();
             this.SuspendLayout();
             // 
             // idLabel
@@ -130,33 +130,33 @@
             this.hotelDataSet.DataSetName = "HotelDataSet";
             this.hotelDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // персоналBindingSource
+            // StaffBindingSource
             // 
-            this.персоналBindingSource.DataMember = "Персонал";
-            this.персоналBindingSource.DataSource = this.hotelDataSet;
+            this.StaffBindingSource.DataMember = "Персонал";
+            this.StaffBindingSource.DataSource = this.hotelDataSet;
             // 
-            // персоналTableAdapter
+            // StaffTableAdapter
             // 
-            this.персоналTableAdapter.ClearBeforeFill = true;
+            this.StaffTableAdapter.ClearBeforeFill = true;
             // 
-            // tableAdapterManager
+            // StaffTableAdapterManager
             // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.UpdateOrder = DataBase2.HotelDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.Гость_комнатаTableAdapter = null;
-            this.tableAdapterManager.ГостьTableAdapter = null;
-            this.tableAdapterManager.ЗаказTableAdapter = null;
-            this.tableAdapterManager.КомнатаTableAdapter = null;
-            this.tableAdapterManager.ПерсоналTableAdapter = this.персоналTableAdapter;
+            this.StaffTableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.StaffTableAdapterManager.UpdateOrder = DataBase2.HotelDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.StaffTableAdapterManager.Гость_комнатаTableAdapter = null;
+            this.StaffTableAdapterManager.ГостьTableAdapter = null;
+            this.StaffTableAdapterManager.ЗаказTableAdapter = null;
+            this.StaffTableAdapterManager.КомнатаTableAdapter = null;
+            this.StaffTableAdapterManager.ПерсоналTableAdapter = this.StaffTableAdapter;
             // 
-            // персоналBindingNavigator
+            // StaffBindingNavigator
             // 
-            this.персоналBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.персоналBindingNavigator.BindingSource = this.персоналBindingSource;
-            this.персоналBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.персоналBindingNavigator.CountItemFormat = "из {0}";
-            this.персоналBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.персоналBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StaffBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.StaffBindingNavigator.BindingSource = this.StaffBindingSource;
+            this.StaffBindingNavigator.CountItem = this.bindingNavigatorCountItem;
+            this.StaffBindingNavigator.CountItemFormat = "из {0}";
+            this.StaffBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.StaffBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorSeparator,
@@ -168,17 +168,17 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.персоналBindingNavigatorSaveItem});
-            this.персоналBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.персоналBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.персоналBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.персоналBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.персоналBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.персоналBindingNavigator.Name = "персоналBindingNavigator";
-            this.персоналBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.персоналBindingNavigator.Size = new System.Drawing.Size(800, 25);
-            this.персоналBindingNavigator.TabIndex = 0;
-            this.персоналBindingNavigator.Text = "bindingNavigator1";
+            this.StaffBindingNavigatorSaveItem});
+            this.StaffBindingNavigator.Location = new System.Drawing.Point(0, 0);
+            this.StaffBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.StaffBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.StaffBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.StaffBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.StaffBindingNavigator.Name = "StaffBindingNavigator";
+            this.StaffBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+            this.StaffBindingNavigator.Size = new System.Drawing.Size(800, 25);
+            this.StaffBindingNavigator.TabIndex = 0;
+            this.StaffBindingNavigator.Text = "bindingNavigator1";
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -232,6 +232,7 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Положение";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -265,18 +266,18 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // персоналBindingNavigatorSaveItem
+            // StaffBindingNavigatorSaveItem
             // 
-            this.персоналBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.персоналBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("персоналBindingNavigatorSaveItem.Image")));
-            this.персоналBindingNavigatorSaveItem.Name = "персоналBindingNavigatorSaveItem";
-            this.персоналBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.персоналBindingNavigatorSaveItem.Text = "Сохранить данные";
-            this.персоналBindingNavigatorSaveItem.Click += new System.EventHandler(this.персоналBindingNavigatorSaveItem_Click);
+            this.StaffBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.StaffBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("StaffBindingNavigatorSaveItem.Image")));
+            this.StaffBindingNavigatorSaveItem.Name = "StaffBindingNavigatorSaveItem";
+            this.StaffBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.StaffBindingNavigatorSaveItem.Text = "Сохранить данные";
+            this.StaffBindingNavigatorSaveItem.Click += new System.EventHandler(this.StaffBindingNavigatorSaveItem_Click);
             // 
             // idTextBox
             // 
-            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.персоналBindingSource, "id", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N0"));
+            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.StaffBindingSource, "id", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N0"));
             this.idTextBox.Location = new System.Drawing.Point(153, 81);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.ReadOnly = true;
@@ -285,7 +286,7 @@
             // 
             // фИОTextBox
             // 
-            this.фИОTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.персоналBindingSource, "ФИО", true));
+            this.фИОTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.StaffBindingSource, "ФИО", true));
             this.фИОTextBox.Location = new System.Drawing.Point(153, 107);
             this.фИОTextBox.Name = "фИОTextBox";
             this.фИОTextBox.Size = new System.Drawing.Size(190, 20);
@@ -293,7 +294,7 @@
             // 
             // зарплатаTextBox
             // 
-            this.зарплатаTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.персоналBindingSource, "Зарплата", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "C0"));
+            this.зарплатаTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.StaffBindingSource, "Зарплата", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "C0"));
             this.зарплатаTextBox.Location = new System.Drawing.Point(153, 159);
             this.зарплатаTextBox.Name = "зарплатаTextBox";
             this.зарплатаTextBox.Size = new System.Drawing.Size(190, 20);
@@ -301,7 +302,7 @@
             // 
             // должностьTextBox
             // 
-            this.должностьTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.персоналBindingSource, "Должность", true));
+            this.должностьTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.StaffBindingSource, "Должность", true));
             this.должностьTextBox.Location = new System.Drawing.Point(153, 185);
             this.должностьTextBox.Name = "должностьTextBox";
             this.должностьTextBox.Size = new System.Drawing.Size(190, 20);
@@ -309,7 +310,7 @@
             // 
             // трудовой_стажTextBox
             // 
-            this.трудовой_стажTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.персоналBindingSource, "Трудовой_стаж", true));
+            this.трудовой_стажTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.StaffBindingSource, "Трудовой_стаж", true));
             this.трудовой_стажTextBox.Location = new System.Drawing.Point(153, 211);
             this.трудовой_стажTextBox.Name = "трудовой_стажTextBox";
             this.трудовой_стажTextBox.Size = new System.Drawing.Size(190, 20);
@@ -317,7 +318,7 @@
             // 
             // полComboBox
             // 
-            this.полComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.персоналBindingSource, "Пол", true));
+            this.полComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.StaffBindingSource, "Пол", true));
             this.полComboBox.FormattingEnabled = true;
             this.полComboBox.Items.AddRange(new object[] {
             "мужской",
@@ -344,16 +345,16 @@
             this.Controls.Add(this.должностьTextBox);
             this.Controls.Add(трудовой_стажLabel);
             this.Controls.Add(this.трудовой_стажTextBox);
-            this.Controls.Add(this.персоналBindingNavigator);
+            this.Controls.Add(this.StaffBindingNavigator);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StaffListForm";
             this.Text = "Staff";
             this.Load += new System.EventHandler(this.StaffListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.hotelDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.персоналBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.персоналBindingNavigator)).EndInit();
-            this.персоналBindingNavigator.ResumeLayout(false);
-            this.персоналBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.StaffBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StaffBindingNavigator)).EndInit();
+            this.StaffBindingNavigator.ResumeLayout(false);
+            this.StaffBindingNavigator.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,10 +363,10 @@
         #endregion
 
         private HotelDataSet hotelDataSet;
-        private System.Windows.Forms.BindingSource персоналBindingSource;
-        private HotelDataSetTableAdapters.ПерсоналTableAdapter персоналTableAdapter;
-        private HotelDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingNavigator персоналBindingNavigator;
+        private System.Windows.Forms.BindingSource StaffBindingSource;
+        private HotelDataSetTableAdapters.ПерсоналTableAdapter StaffTableAdapter;
+        private HotelDataSetTableAdapters.TableAdapterManager StaffTableAdapterManager;
+        private System.Windows.Forms.BindingNavigator StaffBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
@@ -377,7 +378,7 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton персоналBindingNavigatorSaveItem;
+        private System.Windows.Forms.ToolStripButton StaffBindingNavigatorSaveItem;
         private System.Windows.Forms.TextBox idTextBox;
         private System.Windows.Forms.TextBox фИОTextBox;
         private System.Windows.Forms.TextBox зарплатаTextBox;

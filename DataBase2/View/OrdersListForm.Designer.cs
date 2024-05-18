@@ -33,10 +33,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.hotelDataSet = new DataBase2.HotelDataSet();
-            this.заказBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.заказTableAdapter = new DataBase2.HotelDataSetTableAdapters.ЗаказTableAdapter();
-            this.tableAdapterManager = new DataBase2.HotelDataSetTableAdapters.TableAdapterManager();
-            this.заказBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.OrdersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.OrdersTableAdapter = new DataBase2.HotelDataSetTableAdapters.ЗаказTableAdapter();
+            this.OrdersTableAdapterManager = new DataBase2.HotelDataSetTableAdapters.TableAdapterManager();
+            this.OrdersBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
@@ -48,7 +48,7 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.заказBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.OrdersBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.OrderDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,9 +56,9 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.заказBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.заказBindingNavigator)).BeginInit();
-            this.заказBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.OrdersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OrdersBindingNavigator)).BeginInit();
+            this.OrdersBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrderDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,33 +67,33 @@
             this.hotelDataSet.DataSetName = "HotelDataSet";
             this.hotelDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // заказBindingSource
+            // OrdersBindingSource
             // 
-            this.заказBindingSource.DataMember = "Заказ";
-            this.заказBindingSource.DataSource = this.hotelDataSet;
+            this.OrdersBindingSource.DataMember = "Заказ";
+            this.OrdersBindingSource.DataSource = this.hotelDataSet;
             // 
-            // заказTableAdapter
+            // OrdersTableAdapter
             // 
-            this.заказTableAdapter.ClearBeforeFill = true;
+            this.OrdersTableAdapter.ClearBeforeFill = true;
             // 
-            // tableAdapterManager
+            // OrdersTableAdapterManager
             // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.UpdateOrder = DataBase2.HotelDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.Гость_комнатаTableAdapter = null;
-            this.tableAdapterManager.ГостьTableAdapter = null;
-            this.tableAdapterManager.ЗаказTableAdapter = this.заказTableAdapter;
-            this.tableAdapterManager.КомнатаTableAdapter = null;
-            this.tableAdapterManager.ПерсоналTableAdapter = null;
+            this.OrdersTableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.OrdersTableAdapterManager.UpdateOrder = DataBase2.HotelDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.OrdersTableAdapterManager.Гость_комнатаTableAdapter = null;
+            this.OrdersTableAdapterManager.ГостьTableAdapter = null;
+            this.OrdersTableAdapterManager.ЗаказTableAdapter = this.OrdersTableAdapter;
+            this.OrdersTableAdapterManager.КомнатаTableAdapter = null;
+            this.OrdersTableAdapterManager.ПерсоналTableAdapter = null;
             // 
-            // заказBindingNavigator
+            // OrdersBindingNavigator
             // 
-            this.заказBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.заказBindingNavigator.BindingSource = this.заказBindingSource;
-            this.заказBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.заказBindingNavigator.CountItemFormat = "из {0}";
-            this.заказBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.заказBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.OrdersBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.OrdersBindingNavigator.BindingSource = this.OrdersBindingSource;
+            this.OrdersBindingNavigator.CountItem = this.bindingNavigatorCountItem;
+            this.OrdersBindingNavigator.CountItemFormat = "из {0}";
+            this.OrdersBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.OrdersBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorSeparator,
@@ -105,17 +105,17 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.заказBindingNavigatorSaveItem});
-            this.заказBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.заказBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.заказBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.заказBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.заказBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.заказBindingNavigator.Name = "заказBindingNavigator";
-            this.заказBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.заказBindingNavigator.Size = new System.Drawing.Size(800, 25);
-            this.заказBindingNavigator.TabIndex = 0;
-            this.заказBindingNavigator.Text = "bindingNavigator1";
+            this.OrdersBindingNavigatorSaveItem});
+            this.OrdersBindingNavigator.Location = new System.Drawing.Point(0, 0);
+            this.OrdersBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.OrdersBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.OrdersBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.OrdersBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.OrdersBindingNavigator.Name = "OrdersBindingNavigator";
+            this.OrdersBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+            this.OrdersBindingNavigator.Size = new System.Drawing.Size(800, 25);
+            this.OrdersBindingNavigator.TabIndex = 0;
+            this.OrdersBindingNavigator.Text = "bindingNavigator1";
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -169,7 +169,6 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Положение";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -203,14 +202,14 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // заказBindingNavigatorSaveItem
+            // OrdersBindingNavigatorSaveItem
             // 
-            this.заказBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.заказBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("заказBindingNavigatorSaveItem.Image")));
-            this.заказBindingNavigatorSaveItem.Name = "заказBindingNavigatorSaveItem";
-            this.заказBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.заказBindingNavigatorSaveItem.Text = "Сохранить данные";
-            this.заказBindingNavigatorSaveItem.Click += new System.EventHandler(this.заказBindingNavigatorSaveItem_Click);
+            this.OrdersBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.OrdersBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("OrdersBindingNavigatorSaveItem.Image")));
+            this.OrdersBindingNavigatorSaveItem.Name = "OrdersBindingNavigatorSaveItem";
+            this.OrdersBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.OrdersBindingNavigatorSaveItem.Text = "Сохранить данные";
+            this.OrdersBindingNavigatorSaveItem.Click += new System.EventHandler(this.OrdersBindingNavigatorSaveItem_Click);
             // 
             // OrderDataGridView
             // 
@@ -232,7 +231,7 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
-            this.OrderDataGridView.DataSource = this.заказBindingSource;
+            this.OrderDataGridView.DataSource = this.OrdersBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -280,9 +279,9 @@
             this.dataGridViewTextBoxColumn5.DataPropertyName = "Статус_заказа";
             this.dataGridViewTextBoxColumn5.HeaderText = "Статус_заказа";
             this.dataGridViewTextBoxColumn5.Items.AddRange(new object[] {
-            "Свободна",
-            "Забронирована",
-            "Недоступна"});
+            "Подтвержден",
+            "Завершен",
+            "Отменен"});
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -293,16 +292,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.OrderDataGridView);
-            this.Controls.Add(this.заказBindingNavigator);
+            this.Controls.Add(this.OrdersBindingNavigator);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OrdersListForm";
             this.Text = "Orders";
             this.Load += new System.EventHandler(this.OrdersListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.hotelDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.заказBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.заказBindingNavigator)).EndInit();
-            this.заказBindingNavigator.ResumeLayout(false);
-            this.заказBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.OrdersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OrdersBindingNavigator)).EndInit();
+            this.OrdersBindingNavigator.ResumeLayout(false);
+            this.OrdersBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrderDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -312,10 +311,10 @@
         #endregion
 
         private HotelDataSet hotelDataSet;
-        private System.Windows.Forms.BindingSource заказBindingSource;
-        private HotelDataSetTableAdapters.ЗаказTableAdapter заказTableAdapter;
-        private HotelDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingNavigator заказBindingNavigator;
+        private System.Windows.Forms.BindingSource OrdersBindingSource;
+        private HotelDataSetTableAdapters.ЗаказTableAdapter OrdersTableAdapter;
+        private HotelDataSetTableAdapters.TableAdapterManager OrdersTableAdapterManager;
+        private System.Windows.Forms.BindingNavigator OrdersBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
@@ -327,7 +326,7 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton заказBindingNavigatorSaveItem;
+        private System.Windows.Forms.ToolStripButton OrdersBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView OrderDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
