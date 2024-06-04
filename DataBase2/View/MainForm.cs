@@ -57,5 +57,11 @@ namespace DataBase2
         {
             OrdersListForm.ordersListForm.ShowForm();
         }
+
+        private void SQLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SQLForm sqlForm = new SQLForm();
+            sqlForm.Show();
+        }
     }
 }

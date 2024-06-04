@@ -35,6 +35,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.6, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.6\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,10 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HotelDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HotelDataSet.xsd</DependentUpon>
+    <Compile Include="View\SQLForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SQLForm.Designer.cs">
+      <DependentUpon>SQLForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\GuestsListForm.cs">
       <SubType>Form</SubType>
@@ -83,6 +87,9 @@
     <Compile Include="View\StaffListForm.Designer.cs">
       <DependentUpon>StaffListForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\SQLForm.resx">
+      <DependentUpon>SQLForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\GuestsListForm.resx">
       <DependentUpon>GuestsListForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,12 +121,12 @@
     </None>
     <None Include="HotelDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HotelDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="HotelDataSet.xss">
       <DependentUpon>HotelDataSet.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -137,10 +144,13 @@
   <ItemGroup>
     <Content Include="Resources\apartament_key_icon_128x128.png" />
     <Content Include="Resources\exit_icon_128x128.png" />
+    <Content Include="Resources\find_128x128.png" />
     <Content Include="Resources\hotel_icon.ico" />
     <Content Include="Resources\hotel_icon_128x128.png" />
     <Content Include="Resources\human_icon_128x128.png" />
     <Content Include="Resources\information_icon_128x128.png" />
+    <None Include="Resources\loupe_24x24.png" />
+    <None Include="Resources\loupe_32x32.png" />
     <Content Include="Resources\order_icon_100x100.png" />
     <Content Include="Resources\staff_icon_100x100.png" />
     <Content Include="Resources\staff_icon_128x128.png" />

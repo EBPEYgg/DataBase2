@@ -36,13 +36,13 @@ namespace DataBase2 {
         
         private global::System.Data.DataRelation relationFK_Гость_комната_id_гостя;
         
-        private global::System.Data.DataRelation relationFK_Гость_комната_Номер_комнаты;
-        
         private global::System.Data.DataRelation relationFK_Заказ_id_гостя;
         
         private global::System.Data.DataRelation relationFK_Заказ_id_персонала;
         
         private global::System.Data.DataRelation relationFK_Заказ_Номер_комнаты;
+        
+        private global::System.Data.DataRelation relationFK_Гость_комната_Номер_комнаты;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -55,6 +55,7 @@ namespace DataBase2 {
             base.Tables.CollectionChanged += schemaChangedHandler;
             base.Relations.CollectionChanged += schemaChangedHandler;
             this.EndInit();
+            this.InitExpressions();
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -66,6 +67,9 @@ namespace DataBase2 {
                 global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler1 = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
                 this.Tables.CollectionChanged += schemaChangedHandler1;
                 this.Relations.CollectionChanged += schemaChangedHandler1;
+                if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.ExcludeSchema)) {
+                    this.InitExpressions();
+                }
                 return;
             }
             string strSchema = ((string)(info.GetValue("XmlSchema", typeof(string))));
@@ -98,6 +102,7 @@ namespace DataBase2 {
             }
             else {
                 this.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+                this.InitExpressions();
             }
             this.GetSerializationData(info, context);
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -199,6 +204,7 @@ namespace DataBase2 {
         public override global::System.Data.DataSet Clone() {
             HotelDataSet cln = ((HotelDataSet)(base.Clone()));
             cln.InitVars();
+            cln.InitExpressions();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
         }
@@ -301,10 +307,10 @@ namespace DataBase2 {
                 }
             }
             this.relationFK_Гость_комната_id_гостя = this.Relations["FK_Гость_комната_id_гостя"];
-            this.relationFK_Гость_комната_Номер_комнаты = this.Relations["FK_Гость_комната_Номер_комнаты"];
             this.relationFK_Заказ_id_гостя = this.Relations["FK_Заказ_id_гостя"];
             this.relationFK_Заказ_id_персонала = this.Relations["FK_Заказ_id_персонала"];
             this.relationFK_Заказ_Номер_комнаты = this.Relations["FK_Заказ_Номер_комнаты"];
+            this.relationFK_Гость_комната_Номер_комнаты = this.Relations["FK_Гость_комната_Номер_комнаты"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -315,24 +321,20 @@ namespace DataBase2 {
             this.Namespace = "http://tempuri.org/HotelDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableГость = new ГостьDataTable();
+            this.tableГость = new ГостьDataTable(false);
             base.Tables.Add(this.tableГость);
-            this.tableГость_комната = new Гость_комнатаDataTable();
+            this.tableГость_комната = new Гость_комнатаDataTable(false);
             base.Tables.Add(this.tableГость_комната);
-            this.tableЗаказ = new ЗаказDataTable();
+            this.tableЗаказ = new ЗаказDataTable(false);
             base.Tables.Add(this.tableЗаказ);
-            this.tableКомната = new КомнатаDataTable();
+            this.tableКомната = new КомнатаDataTable(false);
             base.Tables.Add(this.tableКомната);
-            this.tableПерсонал = new ПерсоналDataTable();
+            this.tableПерсонал = new ПерсоналDataTable(false);
             base.Tables.Add(this.tableПерсонал);
             this.relationFK_Гость_комната_id_гостя = new global::System.Data.DataRelation("FK_Гость_комната_id_гостя", new global::System.Data.DataColumn[] {
                         this.tableГость.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableГость_комната.id_гостяColumn}, false);
             this.Relations.Add(this.relationFK_Гость_комната_id_гостя);
-            this.relationFK_Гость_комната_Номер_комнаты = new global::System.Data.DataRelation("FK_Гость_комната_Номер_комнаты", new global::System.Data.DataColumn[] {
-                        this.tableКомната.Номер_комнатыColumn}, new global::System.Data.DataColumn[] {
-                        this.tableГость_комната.Номер_комнатыColumn}, false);
-            this.Relations.Add(this.relationFK_Гость_комната_Номер_комнаты);
             this.relationFK_Заказ_id_гостя = new global::System.Data.DataRelation("FK_Заказ_id_гостя", new global::System.Data.DataColumn[] {
                         this.tableГость.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableЗаказ.id_гостяColumn}, false);
@@ -345,6 +347,10 @@ namespace DataBase2 {
                         this.tableКомната.Номер_комнатыColumn}, new global::System.Data.DataColumn[] {
                         this.tableЗаказ.Номер_комнатыColumn}, false);
             this.Relations.Add(this.relationFK_Заказ_Номер_комнаты);
+            this.relationFK_Гость_комната_Номер_комнаты = new global::System.Data.DataRelation("FK_Гость_комната_Номер_комнаты", new global::System.Data.DataColumn[] {
+                        this.tableГость_комната.Номер_комнатыColumn}, new global::System.Data.DataColumn[] {
+                        this.tableКомната.Номер_комнатыColumn}, false);
+            this.Relations.Add(this.relationFK_Гость_комната_Номер_комнаты);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -432,6 +438,16 @@ namespace DataBase2 {
             return type;
         }
         
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitExpressions() {
+            this.Гость.ИнфоColumn.Expression = "id+\' \'+ФИО";
+            this.Гость_комната.О_гостеColumn.Expression = "Parent(FK_Гость_комната_id_гостя).Инфо";
+            this.Заказ.Имя_гостяColumn.Expression = "Parent(FK_Заказ_id_гостя).ФИО";
+            this.Комната.О_гостеColumn.Expression = "Parent(FK_Гость_комната_Номер_комнаты).О_госте";
+            this.Персонал.Инфо_о_сотрудникеColumn.Expression = "ФИО+\' - \'+Должность";
+        }
+        
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void ГостьRowChangeEventHandler(object sender, ГостьRowChangeEvent e);
         
@@ -464,12 +480,23 @@ namespace DataBase2 {
             
             private global::System.Data.DataColumn columnНомер_телефона;
             
+            private global::System.Data.DataColumn columnИнфо;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ГостьDataTable() {
+            public ГостьDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ГостьDataTable(bool initExpressions) {
                 this.TableName = "Гость";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -539,6 +566,14 @@ namespace DataBase2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ИнфоColumn {
+                get {
+                    return this.columnИнфо;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -574,6 +609,22 @@ namespace DataBase2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ГостьRow AddГостьRow(string ФИО, System.DateTime Дата_заезда, System.DateTime Дата_выезда, decimal Номер_телефона, string Инфо) {
+                ГостьRow rowГостьRow = ((ГостьRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        ФИО,
+                        Дата_заезда,
+                        Дата_выезда,
+                        Номер_телефона,
+                        Инфо};
+                rowГостьRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowГостьRow);
+                return rowГостьRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ГостьRow AddГостьRow(string ФИО, System.DateTime Дата_заезда, System.DateTime Дата_выезда, decimal Номер_телефона) {
                 ГостьRow rowГостьRow = ((ГостьRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -581,7 +632,8 @@ namespace DataBase2 {
                         ФИО,
                         Дата_заезда,
                         Дата_выезда,
-                        Номер_телефона};
+                        Номер_телефона,
+                        null};
                 rowГостьRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowГостьRow);
                 return rowГостьRow;
@@ -616,6 +668,7 @@ namespace DataBase2 {
                 this.columnДата_заезда = base.Columns["Дата_заезда"];
                 this.columnДата_выезда = base.Columns["Дата_выезда"];
                 this.columnНомер_телефона = base.Columns["Номер_телефона"];
+                this.columnИнфо = base.Columns["Инфо"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -631,6 +684,8 @@ namespace DataBase2 {
                 base.Columns.Add(this.columnДата_выезда);
                 this.columnНомер_телефона = new global::System.Data.DataColumn("Номер_телефона", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnНомер_телефона);
+                this.columnИнфо = new global::System.Data.DataColumn("Инфо", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnИнфо);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -643,6 +698,7 @@ namespace DataBase2 {
                 this.columnДата_заезда.AllowDBNull = false;
                 this.columnДата_выезда.AllowDBNull = false;
                 this.columnНомер_телефона.AllowDBNull = false;
+                this.columnИнфо.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -661,6 +717,12 @@ namespace DataBase2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(ГостьRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitExpressions() {
+                this.ИнфоColumn.Expression = "id+\' \'+ФИО";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -782,12 +844,23 @@ namespace DataBase2 {
             
             private global::System.Data.DataColumn columnНомер_комнаты;
             
+            private global::System.Data.DataColumn columnО_госте;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Гость_комнатаDataTable() {
+            public Гость_комнатаDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public Гость_комнатаDataTable(bool initExpressions) {
                 this.TableName = "Гость_комната";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -841,6 +914,14 @@ namespace DataBase2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn О_гостеColumn {
+                get {
+                    return this.columnО_госте;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -876,17 +957,15 @@ namespace DataBase2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Гость_комнатаRow AddГость_комнатаRow(int id, ГостьRow parentГостьRowByFK_Гость_комната_id_гостя, КомнатаRow parentКомнатаRowByFK_Гость_комната_Номер_комнаты) {
+            public Гость_комнатаRow AddГость_комнатаRow(int id, ГостьRow parentГостьRowByFK_Гость_комната_id_гостя, int Номер_комнаты, string О_госте) {
                 Гость_комнатаRow rowГость_комнатаRow = ((Гость_комнатаRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
                         null,
-                        null};
+                        Номер_комнаты,
+                        О_госте};
                 if ((parentГостьRowByFK_Гость_комната_id_гостя != null)) {
                     columnValuesArray[1] = parentГостьRowByFK_Гость_комната_id_гостя[0];
-                }
-                if ((parentКомнатаRowByFK_Гость_комната_Номер_комнаты != null)) {
-                    columnValuesArray[2] = parentКомнатаRowByFK_Гость_комната_Номер_комнаты[0];
                 }
                 rowГость_комнатаRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowГость_комнатаRow);
@@ -895,9 +974,26 @@ namespace DataBase2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Гость_комнатаRow FindByid(int id) {
+            public Гость_комнатаRow AddГость_комнатаRow(int id, ГостьRow parentГостьRowByFK_Гость_комната_id_гостя, int Номер_комнаты) {
+                Гость_комнатаRow rowГость_комнатаRow = ((Гость_комнатаRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        id,
+                        null,
+                        Номер_комнаты,
+                        null};
+                if ((parentГостьRowByFK_Гость_комната_id_гостя != null)) {
+                    columnValuesArray[1] = parentГостьRowByFK_Гость_комната_id_гостя[0];
+                }
+                rowГость_комнатаRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowГость_комнатаRow);
+                return rowГость_комнатаRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public Гость_комнатаRow FindByid_гостя(int id_гостя) {
                 return ((Гость_комнатаRow)(this.Rows.Find(new object[] {
-                            id})));
+                            id_гостя})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -920,6 +1016,7 @@ namespace DataBase2 {
                 this.columnid = base.Columns["id"];
                 this.columnid_гостя = base.Columns["id_гостя"];
                 this.columnНомер_комнаты = base.Columns["Номер_комнаты"];
+                this.columnО_госте = base.Columns["О_госте"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -931,13 +1028,19 @@ namespace DataBase2 {
                 base.Columns.Add(this.columnid_гостя);
                 this.columnНомер_комнаты = new global::System.Data.DataColumn("Номер_комнаты", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnНомер_комнаты);
+                this.columnО_госте = new global::System.Data.DataColumn("О_госте", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnО_госте);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnid}, true));
+                                this.columnid_гостя}, true));
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
+                                this.columnНомер_комнаты}, false));
                 this.columnid.AutoIncrementSeed = 1;
                 this.columnid.AllowDBNull = false;
-                this.columnid.Unique = true;
                 this.columnid_гостя.AllowDBNull = false;
+                this.columnid_гостя.Unique = true;
                 this.columnНомер_комнаты.AllowDBNull = false;
+                this.columnНомер_комнаты.Unique = true;
+                this.columnО_госте.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -956,6 +1059,12 @@ namespace DataBase2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(Гость_комнатаRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitExpressions() {
+                this.О_гостеColumn.Expression = "Parent(FK_Гость_комната_id_гостя).Инфо";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1081,12 +1190,23 @@ namespace DataBase2 {
             
             private global::System.Data.DataColumn columnСтатус_заказа;
             
+            private global::System.Data.DataColumn columnИмя_гостя;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ЗаказDataTable() {
+            public ЗаказDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ЗаказDataTable(bool initExpressions) {
                 this.TableName = "Заказ";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -1156,6 +1276,14 @@ namespace DataBase2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Имя_гостяColumn {
+                get {
+                    return this.columnИмя_гостя;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1191,6 +1319,31 @@ namespace DataBase2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ЗаказRow AddЗаказRow(ГостьRow parentГостьRowByFK_Заказ_id_гостя, КомнатаRow parentКомнатаRowByFK_Заказ_Номер_комнаты, ПерсоналRow parentПерсоналRowByFK_Заказ_id_персонала, string Статус_заказа, string Имя_гостя) {
+                ЗаказRow rowЗаказRow = ((ЗаказRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        null,
+                        null,
+                        null,
+                        Статус_заказа,
+                        Имя_гостя};
+                if ((parentГостьRowByFK_Заказ_id_гостя != null)) {
+                    columnValuesArray[1] = parentГостьRowByFK_Заказ_id_гостя[0];
+                }
+                if ((parentКомнатаRowByFK_Заказ_Номер_комнаты != null)) {
+                    columnValuesArray[2] = parentКомнатаRowByFK_Заказ_Номер_комнаты[0];
+                }
+                if ((parentПерсоналRowByFK_Заказ_id_персонала != null)) {
+                    columnValuesArray[3] = parentПерсоналRowByFK_Заказ_id_персонала[0];
+                }
+                rowЗаказRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowЗаказRow);
+                return rowЗаказRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ЗаказRow AddЗаказRow(ГостьRow parentГостьRowByFK_Заказ_id_гостя, КомнатаRow parentКомнатаRowByFK_Заказ_Номер_комнаты, ПерсоналRow parentПерсоналRowByFK_Заказ_id_персонала, string Статус_заказа) {
                 ЗаказRow rowЗаказRow = ((ЗаказRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -1198,7 +1351,8 @@ namespace DataBase2 {
                         null,
                         null,
                         null,
-                        Статус_заказа};
+                        Статус_заказа,
+                        null};
                 if ((parentГостьRowByFK_Заказ_id_гостя != null)) {
                     columnValuesArray[1] = parentГостьRowByFK_Заказ_id_гостя[0];
                 }
@@ -1242,6 +1396,7 @@ namespace DataBase2 {
                 this.columnНомер_комнаты = base.Columns["Номер_комнаты"];
                 this.columnid_персонала = base.Columns["id_персонала"];
                 this.columnСтатус_заказа = base.Columns["Статус_заказа"];
+                this.columnИмя_гостя = base.Columns["Имя_гостя"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1257,6 +1412,8 @@ namespace DataBase2 {
                 base.Columns.Add(this.columnid_персонала);
                 this.columnСтатус_заказа = new global::System.Data.DataColumn("Статус_заказа", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnСтатус_заказа);
+                this.columnИмя_гостя = new global::System.Data.DataColumn("Имя_гостя", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnИмя_гостя);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -1269,6 +1426,7 @@ namespace DataBase2 {
                 this.columnid_персонала.AllowDBNull = false;
                 this.columnСтатус_заказа.AllowDBNull = false;
                 this.columnСтатус_заказа.MaxLength = 20;
+                this.columnИмя_гостя.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1287,6 +1445,12 @@ namespace DataBase2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(ЗаказRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitExpressions() {
+                this.Имя_гостяColumn.Expression = "Parent(FK_Заказ_id_гостя).ФИО";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1420,12 +1584,23 @@ namespace DataBase2 {
             
             private global::System.Data.DataColumn columnУслуга_все_включено;
             
+            private global::System.Data.DataColumn columnО_госте;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public КомнатаDataTable() {
+            public КомнатаDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public КомнатаDataTable(bool initExpressions) {
                 this.TableName = "Комната";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -1527,6 +1702,14 @@ namespace DataBase2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn О_гостеColumn {
+                get {
+                    return this.columnО_госте;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1562,6 +1745,26 @@ namespace DataBase2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public КомнатаRow AddКомнатаRow(int id_гостя, string ФИО_арендатора, byte[] Изображение, string Тип_комнаты, string Статус_комнаты, string Название_обслуживающей_организации, decimal Частота_уборки, bool Услуга_все_включено, string О_госте) {
+                КомнатаRow rowКомнатаRow = ((КомнатаRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        id_гостя,
+                        ФИО_арендатора,
+                        Изображение,
+                        Тип_комнаты,
+                        Статус_комнаты,
+                        Название_обслуживающей_организации,
+                        Частота_уборки,
+                        Услуга_все_включено,
+                        О_госте};
+                rowКомнатаRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowКомнатаRow);
+                return rowКомнатаRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public КомнатаRow AddКомнатаRow(int id_гостя, string ФИО_арендатора, byte[] Изображение, string Тип_комнаты, string Статус_комнаты, string Название_обслуживающей_организации, decimal Частота_уборки, bool Услуга_все_включено) {
                 КомнатаRow rowКомнатаRow = ((КомнатаRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -1573,7 +1776,8 @@ namespace DataBase2 {
                         Статус_комнаты,
                         Название_обслуживающей_организации,
                         Частота_уборки,
-                        Услуга_все_включено};
+                        Услуга_все_включено,
+                        null};
                 rowКомнатаRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowКомнатаRow);
                 return rowКомнатаRow;
@@ -1612,6 +1816,7 @@ namespace DataBase2 {
                 this.columnНазвание_обслуживающей_организации = base.Columns["Название_обслуживающей_организации"];
                 this.columnЧастота_уборки = base.Columns["Частота_уборки"];
                 this.columnУслуга_все_включено = base.Columns["Услуга_все_включено"];
+                this.columnО_госте = base.Columns["О_госте"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1635,6 +1840,8 @@ namespace DataBase2 {
                 base.Columns.Add(this.columnЧастота_уборки);
                 this.columnУслуга_все_включено = new global::System.Data.DataColumn("Услуга_все_включено", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnУслуга_все_включено);
+                this.columnО_госте = new global::System.Data.DataColumn("О_госте", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnО_госте);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnНомер_комнаты}, true));
                 this.columnНомер_комнаты.AutoIncrement = true;
@@ -1651,6 +1858,7 @@ namespace DataBase2 {
                 this.columnНазвание_обслуживающей_организации.MaxLength = 100;
                 this.columnЧастота_уборки.AllowDBNull = false;
                 this.columnУслуга_все_включено.AllowDBNull = false;
+                this.columnО_госте.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1669,6 +1877,12 @@ namespace DataBase2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(КомнатаRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitExpressions() {
+                this.О_гостеColumn.Expression = "Parent(FK_Гость_комната_Номер_комнаты).О_госте";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1796,12 +2010,23 @@ namespace DataBase2 {
             
             private global::System.Data.DataColumn columnТрудовой_стаж;
             
+            private global::System.Data.DataColumn columnИнфо_о_сотруднике;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ПерсоналDataTable() {
+            public ПерсоналDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ПерсоналDataTable(bool initExpressions) {
                 this.TableName = "Персонал";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -1879,6 +2104,14 @@ namespace DataBase2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Инфо_о_сотрудникеColumn {
+                get {
+                    return this.columnИнфо_о_сотруднике;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1914,6 +2147,23 @@ namespace DataBase2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ПерсоналRow AddПерсоналRow(string ФИО, string Пол, decimal Зарплата, string Должность, string Трудовой_стаж, string Инфо_о_сотруднике) {
+                ПерсоналRow rowПерсоналRow = ((ПерсоналRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        ФИО,
+                        Пол,
+                        Зарплата,
+                        Должность,
+                        Трудовой_стаж,
+                        Инфо_о_сотруднике};
+                rowПерсоналRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowПерсоналRow);
+                return rowПерсоналRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ПерсоналRow AddПерсоналRow(string ФИО, string Пол, decimal Зарплата, string Должность, string Трудовой_стаж) {
                 ПерсоналRow rowПерсоналRow = ((ПерсоналRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -1922,7 +2172,8 @@ namespace DataBase2 {
                         Пол,
                         Зарплата,
                         Должность,
-                        Трудовой_стаж};
+                        Трудовой_стаж,
+                        null};
                 rowПерсоналRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowПерсоналRow);
                 return rowПерсоналRow;
@@ -1958,6 +2209,7 @@ namespace DataBase2 {
                 this.columnЗарплата = base.Columns["Зарплата"];
                 this.columnДолжность = base.Columns["Должность"];
                 this.columnТрудовой_стаж = base.Columns["Трудовой_стаж"];
+                this.columnИнфо_о_сотруднике = base.Columns["Инфо_о_сотруднике"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1975,6 +2227,8 @@ namespace DataBase2 {
                 base.Columns.Add(this.columnДолжность);
                 this.columnТрудовой_стаж = new global::System.Data.DataColumn("Трудовой_стаж", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnТрудовой_стаж);
+                this.columnИнфо_о_сотруднике = new global::System.Data.DataColumn("Инфо_о_сотруднике", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnИнфо_о_сотруднике);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -1991,6 +2245,7 @@ namespace DataBase2 {
                 this.columnДолжность.MaxLength = 100;
                 this.columnТрудовой_стаж.AllowDBNull = false;
                 this.columnТрудовой_стаж.MaxLength = 10;
+                this.columnИнфо_о_сотруднике.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2009,6 +2264,12 @@ namespace DataBase2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(ПерсоналRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitExpressions() {
+                this.Инфо_о_сотрудникеColumn.Expression = "ФИО+\' - \'+Должность";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2188,6 +2449,34 @@ namespace DataBase2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Инфо {
+                get {
+                    try {
+                        return ((string)(this[this.tableГость.ИнфоColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Инфо\' в таблице \'Гость\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableГость.ИнфоColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsИнфоNull() {
+                return this.IsNull(this.tableГость.ИнфоColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetИнфоNull() {
+                this[this.tableГость.ИнфоColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public Гость_комнатаRow[] GetГость_комнатаRows() {
                 if ((this.Table.ChildRelations["FK_Гость_комната_id_гостя"] == null)) {
                     return new Гость_комнатаRow[0];
@@ -2258,6 +2547,22 @@ namespace DataBase2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string О_госте {
+                get {
+                    try {
+                        return ((string)(this[this.tableГость_комната.О_гостеColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'О_госте\' в таблице \'Гость_комната\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableГость_комната.О_гостеColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ГостьRow ГостьRow {
                 get {
                     return ((ГостьRow)(this.GetParentRow(this.Table.ParentRelations["FK_Гость_комната_id_гостя"])));
@@ -2269,12 +2574,24 @@ namespace DataBase2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public КомнатаRow КомнатаRow {
-                get {
-                    return ((КомнатаRow)(this.GetParentRow(this.Table.ParentRelations["FK_Гость_комната_Номер_комнаты"])));
+            public bool IsО_гостеNull() {
+                return this.IsNull(this.tableГость_комната.О_гостеColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetО_гостеNull() {
+                this[this.tableГость_комната.О_гостеColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public КомнатаRow[] GetКомнатаRows() {
+                if ((this.Table.ChildRelations["FK_Гость_комната_Номер_комнаты"] == null)) {
+                    return new КомнатаRow[0];
                 }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Гость_комната_Номер_комнаты"]);
+                else {
+                    return ((КомнатаRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Гость_комната_Номер_комнаты"])));
                 }
             }
         }
@@ -2350,6 +2667,22 @@ namespace DataBase2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Имя_гостя {
+                get {
+                    try {
+                        return ((string)(this[this.tableЗаказ.Имя_гостяColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Имя_гостя\' в таблице \'Заказ\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableЗаказ.Имя_гостяColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ГостьRow ГостьRow {
                 get {
                     return ((ГостьRow)(this.GetParentRow(this.Table.ParentRelations["FK_Заказ_id_гостя"])));
@@ -2379,6 +2712,18 @@ namespace DataBase2 {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Заказ_Номер_комнаты"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsИмя_гостяNull() {
+                return this.IsNull(this.tableЗаказ.Имя_гостяColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetИмя_гостяNull() {
+                this[this.tableЗаказ.Имя_гостяColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2512,6 +2857,33 @@ namespace DataBase2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string О_госте {
+                get {
+                    try {
+                        return ((string)(this[this.tableКомната.О_гостеColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'О_госте\' в таблице \'Комната\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableКомната.О_гостеColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public Гость_комнатаRow Гость_комнатаRow {
+                get {
+                    return ((Гость_комнатаRow)(this.GetParentRow(this.Table.ParentRelations["FK_Гость_комната_Номер_комнаты"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Гость_комната_Номер_комнаты"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isid_гостяNull() {
                 return this.IsNull(this.tableКомната.id_гостяColumn);
             }
@@ -2548,13 +2920,14 @@ namespace DataBase2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Гость_комнатаRow[] GetГость_комнатаRows() {
-                if ((this.Table.ChildRelations["FK_Гость_комната_Номер_комнаты"] == null)) {
-                    return new Гость_комнатаRow[0];
-                }
-                else {
-                    return ((Гость_комнатаRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Гость_комната_Номер_комнаты"])));
-                }
+            public bool IsО_гостеNull() {
+                return this.IsNull(this.tableКомната.О_гостеColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetО_гостеNull() {
+                this[this.tableКомната.О_гостеColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2647,6 +3020,34 @@ namespace DataBase2 {
                 set {
                     this[this.tableПерсонал.Трудовой_стажColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Инфо_о_сотруднике {
+                get {
+                    try {
+                        return ((string)(this[this.tableПерсонал.Инфо_о_сотрудникеColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Инфо_о_сотруднике\' в таблице \'Персонал\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableПерсонал.Инфо_о_сотрудникеColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsИнфо_о_сотрудникеNull() {
+                return this.IsNull(this.tableПерсонал.Инфо_о_сотрудникеColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetИнфо_о_сотрудникеNull() {
+                this[this.tableПерсонал.Инфо_о_сотрудникеColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3036,7 +3437,7 @@ SELECT id, ФИО, Дата_заезда, Дата_выезда, Номер_те
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual HotelDataSet.ГостьDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            HotelDataSet.ГостьDataTable dataTable = new HotelDataSet.ГостьDataTable();
+            HotelDataSet.ГостьDataTable dataTable = new HotelDataSet.ГостьDataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3349,7 +3750,7 @@ SELECT id, id_гостя, Номер_комнаты FROM Гость_комнат
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id, id_гостя, Номер_комнаты FROM dbo.Гость_комната";
+            this._commandCollection[0].CommandText = "SELECT id, id_гостя, Номер_комнаты FROM Гость_комната";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3372,7 +3773,7 @@ SELECT id, id_гостя, Номер_комнаты FROM Гость_комнат
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual HotelDataSet.Гость_комнатаDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            HotelDataSet.Гость_комнатаDataTable dataTable = new HotelDataSet.Гость_комнатаDataTable();
+            HotelDataSet.Гость_комнатаDataTable dataTable = new HotelDataSet.Гость_комнатаDataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3485,8 +3886,8 @@ SELECT id, id_гостя, Номер_комнаты FROM Гость_комнат
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int id_гостя, int Номер_комнаты, int Original_id, int Original_id_гостя, int Original_Номер_комнаты) {
-            return this.Update(Original_id, id_гостя, Номер_комнаты, Original_id, Original_id_гостя, Original_Номер_комнаты);
+        public virtual int Update(int id, int Номер_комнаты, int Original_id, int Original_id_гостя, int Original_Номер_комнаты) {
+            return this.Update(id, Original_id_гостя, Номер_комнаты, Original_id, Original_id_гостя, Original_Номер_комнаты);
         }
     }
     
@@ -3690,7 +4091,7 @@ SELECT id, id_гостя, Номер_комнаты, id_персонала, Ст
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual HotelDataSet.ЗаказDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            HotelDataSet.ЗаказDataTable dataTable = new HotelDataSet.ЗаказDataTable();
+            HotelDataSet.ЗаказDataTable dataTable = new HotelDataSet.ЗаказDataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4034,7 +4435,7 @@ SELECT Номер_комнаты, id_гостя, ФИО_арендатора, И
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Номер_комнаты, id_гостя, ФИО_арендатора, Изображение, Тип_комнаты, Статус_" +
                 "комнаты, Название_обслуживающей_организации, Частота_уборки, Услуга_все_включено" +
-                " FROM dbo.Комната";
+                " FROM Комната";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4057,7 +4458,7 @@ SELECT Номер_комнаты, id_гостя, ФИО_арендатора, И
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual HotelDataSet.КомнатаDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            HotelDataSet.КомнатаDataTable dataTable = new HotelDataSet.КомнатаDataTable();
+            HotelDataSet.КомнатаDataTable dataTable = new HotelDataSet.КомнатаDataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4554,7 +4955,7 @@ SELECT id, ФИО, Пол, Зарплата, Должность, Трудово�
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual HotelDataSet.ПерсоналDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            HotelDataSet.ПерсоналDataTable dataTable = new HotelDataSet.ПерсоналDataTable();
+            HotelDataSet.ПерсоналDataTable dataTable = new HotelDataSet.ПерсоналDataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4957,6 +5358,15 @@ SELECT id, ФИО, Пол, Зарплата, Должность, Трудово�
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._гость_комнатаTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Гость_комната.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._гость_комнатаTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._комнатаTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Комната.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -4972,15 +5382,6 @@ SELECT id, ФИО, Пол, Зарплата, Должность, Трудово�
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._персоналTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._гость_комнатаTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Гость_комната.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._гость_комнатаTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -5011,6 +5412,14 @@ SELECT id, ФИО, Пол, Зарплата, Должность, Трудово�
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._гость_комнатаTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Гость_комната.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._гость_комнатаTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._комнатаTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Комната.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -5024,14 +5433,6 @@ SELECT id, ФИО, Пол, Зарплата, Должность, Трудово�
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._персоналTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._гость_комнатаTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Гость_комната.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._гость_комнатаTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -5061,14 +5462,6 @@ SELECT id, ФИО, Пол, Зарплата, Должность, Трудово�
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._гость_комнатаTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Гость_комната.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._гость_комнатаTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._персоналTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Персонал.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -5082,6 +5475,14 @@ SELECT id, ФИО, Пол, Зарплата, Должность, Трудово�
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._комнатаTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._гость_комнатаTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Гость_комната.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._гость_комнатаTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

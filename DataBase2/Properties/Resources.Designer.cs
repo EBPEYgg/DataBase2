@@ -83,6 +83,16 @@ namespace DataBase2.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap find_128x128 {
+            get {
+                object obj = ResourceManager.GetObject("find_128x128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hotel_icon_128x128 {
             get {
                 object obj = ResourceManager.GetObject("hotel_icon_128x128", resourceCulture);
@@ -106,6 +116,26 @@ namespace DataBase2.Properties {
         internal static System.Drawing.Bitmap information_icon_128x128 {
             get {
                 object obj = ResourceManager.GetObject("information_icon_128x128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap loupe_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("loupe_24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap loupe_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("loupe_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

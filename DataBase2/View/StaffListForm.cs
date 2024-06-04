@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using System;
+using System.Data;
 
 namespace DataBase2.View
 {
@@ -8,7 +9,7 @@ namespace DataBase2.View
         /// <summary>
         /// Экземпляр формы <see cref="StaffListForm"/>.
         /// </summary>
-        private static StaffListForm form;
+        private static StaffListForm _form;
 
         /// <summary>
         /// Возвращает экземпляр формы <see cref="StaffListForm"/>, 
@@ -18,11 +19,11 @@ namespace DataBase2.View
         {
             get
             {
-                if (form == null || form.IsDisposed)
+                if (_form == null || _form.IsDisposed)
                 {
-                    form = new StaffListForm();
+                    _form = new StaffListForm();
                 }
-                return form;
+                return _form;
             }
         }
 
@@ -45,17 +46,59 @@ namespace DataBase2.View
 
         private void StaffBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.StaffBindingSource.EndEdit();
-            this.StaffTableAdapterManager.UpdateAll(this.hotelDataSet);
+            try
+            {
+                this.Validate();
+                this.StaffBindingSource.EndEdit();
+                this.StaffTableAdapterManager.UpdateAll(this.hotelDataSet);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
+        private void OrderBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Validate();
+                this.StaffBindingSource.EndEdit();
+                this.StaffTableAdapterManager.UpdateAll(this.hotelDataSet);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void StaffListForm_Load(object sender, EventArgs e)
         {
+            // Данная строка кода позволяет загрузить данные в таблицу "hotelDataSet.Заказ".
+            // При необходимости она может быть перемещена или удалена.
+            this.OrderTableAdapter.Fill(this.hotelDataSet.Заказ);
             // Данная строка кода позволяет загрузить данные в таблицу "hotelDataSet.Персонал".
             // При необходимости она может быть перемещена или удалена.
             this.StaffTableAdapter.Fill(this.hotelDataSet.Персонал);
+        }
+
+        private void ShowOrderButton_Click(object sender, EventArgs e)
+        {
+            int idStaff = -1;
+            if (idTextBox.Text.ToString() != "")
+            {
+                idStaff = int.Parse(idTextBox.Text.ToString());
+            }
+
+            idStaff = OrdersListForm.ordersListForm.ShowSelectForm(idStaff);
+
+            if (idStaff >= 0)
+            {
+                MessageBox.Show(idStaff.ToString());
+                idTextBox.Text = idStaff.ToString();
+                StaffBindingSource.EndEdit();
+                StaffTableAdapter.Fill(this.hotelDataSet.Персонал);
+            }
         }
     }
 }

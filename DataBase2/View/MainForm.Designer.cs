@@ -48,6 +48,7 @@
             this.staffToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.guestsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ordersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.SQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainToolStrip = new System.Windows.Forms.ToolStrip();
             this.CloseToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.AboutAppToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -85,7 +86,7 @@
             this.CloseToolStripMenuItem.Image = global::DataBase2.Properties.Resources.exit_icon_128x128;
             this.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem";
             this.CloseToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
-            this.CloseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CloseToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.CloseToolStripMenuItem.Text = "Close";
             this.CloseToolStripMenuItem.Click += new System.EventHandler(this.CloseToolStripMenuItem_Click);
             // 
@@ -94,7 +95,7 @@
             this.AboutAppToolStripMenuItem.Image = global::DataBase2.Properties.Resources.information_icon_128x128;
             this.AboutAppToolStripMenuItem.Name = "AboutAppToolStripMenuItem";
             this.AboutAppToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.I)));
-            this.AboutAppToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.AboutAppToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.AboutAppToolStripMenuItem.Text = "About app";
             this.AboutAppToolStripMenuItem.Click += new System.EventHandler(this.AboutAppToolStripMenuItem_Click);
             // 
@@ -113,7 +114,7 @@
             // 
             this.RoomsToolStripMenuItem.Image = global::DataBase2.Properties.Resources.hotel_icon_128x128;
             this.RoomsToolStripMenuItem.Name = "RoomsToolStripMenuItem";
-            this.RoomsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.RoomsToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.RoomsToolStripMenuItem.Text = "Rooms";
             this.RoomsToolStripMenuItem.Click += new System.EventHandler(this.RoomsToolStripMenuItem_Click);
             // 
@@ -121,7 +122,7 @@
             // 
             this.StaffToolStripMenuItem.Image = global::DataBase2.Properties.Resources.staff_icon_100x100;
             this.StaffToolStripMenuItem.Name = "StaffToolStripMenuItem";
-            this.StaffToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.StaffToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.StaffToolStripMenuItem.Text = "Staff";
             this.StaffToolStripMenuItem.Click += new System.EventHandler(this.StaffToolStripMenuItem_Click);
             // 
@@ -129,7 +130,7 @@
             // 
             this.GuestsToolStripMenuItem.Image = global::DataBase2.Properties.Resources.staff_icon_128x128;
             this.GuestsToolStripMenuItem.Name = "GuestsToolStripMenuItem";
-            this.GuestsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.GuestsToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.GuestsToolStripMenuItem.Text = "Guests";
             this.GuestsToolStripMenuItem.Click += new System.EventHandler(this.GuestsToolStripMenuItem_Click);
             // 
@@ -137,7 +138,7 @@
             // 
             this.OrdersToolStripMenuItem.Image = global::DataBase2.Properties.Resources.order_icon_100x100;
             this.OrdersToolStripMenuItem.Name = "OrdersToolStripMenuItem";
-            this.OrdersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.OrdersToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.OrdersToolStripMenuItem.Text = "Orders";
             this.OrdersToolStripMenuItem.Click += new System.EventHandler(this.OrdersToolStripMenuItem_Click);
             // 
@@ -145,9 +146,10 @@
             // 
             this.MainContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem1,
-            this.directoryToolStripMenuItem1});
+            this.directoryToolStripMenuItem1,
+            this.SQLToolStripMenuItem});
             this.MainContextMenuStrip.Name = "MainContextMenuStrip";
-            this.MainContextMenuStrip.Size = new System.Drawing.Size(160, 48);
+            this.MainContextMenuStrip.Size = new System.Drawing.Size(160, 70);
             // 
             // fileToolStripMenuItem1
             // 
@@ -163,7 +165,7 @@
             // 
             this.ExitToolStripMenuItem.Image = global::DataBase2.Properties.Resources.exit_icon_128x128;
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.ExitToolStripMenuItem.Text = "Close";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.CloseToolStripMenuItem_Click);
             // 
@@ -171,7 +173,7 @@
             // 
             this.AboutAppToolStripMenuItem1.Image = global::DataBase2.Properties.Resources.information_icon_128x128;
             this.AboutAppToolStripMenuItem1.Name = "AboutAppToolStripMenuItem1";
-            this.AboutAppToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.AboutAppToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
             this.AboutAppToolStripMenuItem1.Text = "About app";
             this.AboutAppToolStripMenuItem1.Click += new System.EventHandler(this.AboutAppToolStripMenuItem_Click);
             // 
@@ -191,7 +193,7 @@
             // 
             this.roomsToolStripMenuItem1.Image = global::DataBase2.Properties.Resources.hotel_icon_128x128;
             this.roomsToolStripMenuItem1.Name = "roomsToolStripMenuItem1";
-            this.roomsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.roomsToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
             this.roomsToolStripMenuItem1.Text = "Rooms";
             this.roomsToolStripMenuItem1.Click += new System.EventHandler(this.RoomsToolStripMenuItem_Click);
             // 
@@ -199,7 +201,7 @@
             // 
             this.staffToolStripMenuItem1.Image = global::DataBase2.Properties.Resources.staff_icon_100x100;
             this.staffToolStripMenuItem1.Name = "staffToolStripMenuItem1";
-            this.staffToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.staffToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
             this.staffToolStripMenuItem1.Text = "Staff";
             this.staffToolStripMenuItem1.Click += new System.EventHandler(this.StaffToolStripMenuItem_Click);
             // 
@@ -207,7 +209,7 @@
             // 
             this.guestsToolStripMenuItem1.Image = global::DataBase2.Properties.Resources.staff_icon_128x128;
             this.guestsToolStripMenuItem1.Name = "guestsToolStripMenuItem1";
-            this.guestsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.guestsToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
             this.guestsToolStripMenuItem1.Text = "Guests";
             this.guestsToolStripMenuItem1.Click += new System.EventHandler(this.GuestsToolStripMenuItem_Click);
             // 
@@ -215,9 +217,17 @@
             // 
             this.ordersToolStripMenuItem1.Image = global::DataBase2.Properties.Resources.order_icon_100x100;
             this.ordersToolStripMenuItem1.Name = "ordersToolStripMenuItem1";
-            this.ordersToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.ordersToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
             this.ordersToolStripMenuItem1.Text = "Orders";
             this.ordersToolStripMenuItem1.Click += new System.EventHandler(this.OrdersToolStripMenuItem_Click);
+            // 
+            // SQLToolStripMenuItem
+            // 
+            this.SQLToolStripMenuItem.Name = "SQLToolStripMenuItem";
+            this.SQLToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.R)));
+            this.SQLToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.SQLToolStripMenuItem.Text = "SQL";
+            this.SQLToolStripMenuItem.Click += new System.EventHandler(this.SQLToolStripMenuItem_Click);
             // 
             // MainToolStrip
             // 
@@ -305,6 +315,7 @@
             this.DataBindings.Add(new System.Windows.Forms.Binding("Location", global::DataBase2.Properties.Settings.Default, "FormPos", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = global::DataBase2.Properties.Settings.Default.FormPos;
+            this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "MainForm";
             this.Text = "Hotel";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
@@ -346,6 +357,7 @@
         private System.Windows.Forms.ToolStripButton StaffToolStripButton;
         private System.Windows.Forms.ToolStripButton GuestsToolStripButton;
         private System.Windows.Forms.ToolStripButton OrdersToolStripButton;
+        private System.Windows.Forms.ToolStripMenuItem SQLToolStripMenuItem;
     }
 }
 

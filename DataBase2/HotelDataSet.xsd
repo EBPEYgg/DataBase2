@@ -95,7 +95,7 @@ SELECT id, id_гостя, Номер_комнаты FROM Гость_комнат
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT id, id_гостя, Номер_комнаты FROM dbo.Гость_комната</CommandText>
+                    <CommandText>SELECT id, id_гостя, Номер_комнаты FROM Гость_комната</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -222,7 +222,7 @@ SELECT Номер_комнаты, id_гостя, ФИО_арендатора, И
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Номер_комнаты, id_гостя, ФИО_арендатора, Изображение, Тип_комнаты, Статус_комнаты, Название_обслуживающей_организации, Частота_уборки, Услуга_все_включено FROM dbo.Комната</CommandText>
+                    <CommandText>SELECT Номер_комнаты, id_гостя, ФИО_арендатора, Изображение, Тип_комнаты, Статус_комнаты, Название_обслуживающей_организации, Частота_уборки, Услуга_все_включено FROM Комната</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -343,121 +343,126 @@ SELECT id, ФИО, Пол, Зарплата, Должность, Трудово�
   <xs:element name="HotelDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="HotelDataSet" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="HotelDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Гость" msprop:Generator_RowClassName="ГостьRow" msprop:Generator_RowEvHandlerName="ГостьRowChangeEventHandler" msprop:Generator_RowDeletedName="ГостьRowDeleted" msprop:Generator_RowDeletingName="ГостьRowDeleting" msprop:Generator_RowEvArgName="ГостьRowChangeEvent" msprop:Generator_TablePropName="Гость" msprop:Generator_RowChangedName="ГостьRowChanged" msprop:Generator_UserTableName="Гость" msprop:Generator_RowChangingName="ГостьRowChanging" msprop:Generator_TableClassName="ГостьDataTable" msprop:Generator_TableVarName="tableГость">
+        <xs:element name="Гость" msprop:Generator_RowEvHandlerName="ГостьRowChangeEventHandler" msprop:Generator_RowDeletedName="ГостьRowDeleted" msprop:Generator_RowDeletingName="ГостьRowDeleting" msprop:Generator_RowEvArgName="ГостьRowChangeEvent" msprop:Generator_TablePropName="Гость" msprop:Generator_RowChangedName="ГостьRowChanged" msprop:Generator_UserTableName="Гость" msprop:Generator_RowChangingName="ГостьRowChanging" msprop:Generator_RowClassName="ГостьRow" msprop:Generator_TableClassName="ГостьDataTable" msprop:Generator_TableVarName="tableГость">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" />
-              <xs:element name="ФИО" msprop:Generator_UserColumnName="ФИО" msprop:Generator_ColumnPropNameInTable="ФИОColumn" msprop:Generator_ColumnPropNameInRow="ФИО" msprop:Generator_ColumnVarNameInTable="columnФИО">
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" />
+              <xs:element name="ФИО" msprop:Generator_ColumnPropNameInTable="ФИОColumn" msprop:Generator_ColumnPropNameInRow="ФИО" msprop:Generator_UserColumnName="ФИО" msprop:Generator_ColumnVarNameInTable="columnФИО">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Дата_заезда" msprop:Generator_UserColumnName="Дата_заезда" msprop:Generator_ColumnPropNameInTable="Дата_заездаColumn" msprop:Generator_ColumnPropNameInRow="Дата_заезда" msprop:Generator_ColumnVarNameInTable="columnДата_заезда" type="xs:dateTime" />
-              <xs:element name="Дата_выезда" msprop:Generator_UserColumnName="Дата_выезда" msprop:Generator_ColumnPropNameInTable="Дата_выездаColumn" msprop:Generator_ColumnPropNameInRow="Дата_выезда" msprop:Generator_ColumnVarNameInTable="columnДата_выезда" type="xs:dateTime" />
-              <xs:element name="Номер_телефона" msprop:Generator_UserColumnName="Номер_телефона" msprop:Generator_ColumnPropNameInTable="Номер_телефонаColumn" msprop:Generator_ColumnPropNameInRow="Номер_телефона" msprop:Generator_ColumnVarNameInTable="columnНомер_телефона" type="xs:decimal" />
+              <xs:element name="Дата_заезда" msprop:Generator_ColumnPropNameInTable="Дата_заездаColumn" msprop:Generator_ColumnPropNameInRow="Дата_заезда" msprop:Generator_UserColumnName="Дата_заезда" msprop:Generator_ColumnVarNameInTable="columnДата_заезда" type="xs:dateTime" />
+              <xs:element name="Дата_выезда" msprop:Generator_ColumnPropNameInTable="Дата_выездаColumn" msprop:Generator_ColumnPropNameInRow="Дата_выезда" msprop:Generator_UserColumnName="Дата_выезда" msprop:Generator_ColumnVarNameInTable="columnДата_выезда" type="xs:dateTime" />
+              <xs:element name="Номер_телефона" msprop:Generator_ColumnPropNameInTable="Номер_телефонаColumn" msprop:Generator_ColumnPropNameInRow="Номер_телефона" msprop:Generator_UserColumnName="Номер_телефона" msprop:Generator_ColumnVarNameInTable="columnНомер_телефона" type="xs:decimal" />
+              <xs:element name="Инфо" msdata:ReadOnly="true" msdata:Expression="id+' '+ФИО" msprop:Generator_ColumnPropNameInRow="Инфо" msprop:Generator_ColumnPropNameInTable="ИнфоColumn" msprop:Generator_ColumnVarNameInTable="columnИнфо" msprop:Generator_UserColumnName="Инфо" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Гость_комната" msprop:Generator_RowClassName="Гость_комнатаRow" msprop:Generator_RowEvHandlerName="Гость_комнатаRowChangeEventHandler" msprop:Generator_RowDeletedName="Гость_комнатаRowDeleted" msprop:Generator_RowDeletingName="Гость_комнатаRowDeleting" msprop:Generator_RowEvArgName="Гость_комнатаRowChangeEvent" msprop:Generator_TablePropName="Гость_комната" msprop:Generator_RowChangedName="Гость_комнатаRowChanged" msprop:Generator_UserTableName="Гость_комната" msprop:Generator_RowChangingName="Гость_комнатаRowChanging" msprop:Generator_TableClassName="Гость_комнатаDataTable" msprop:Generator_TableVarName="tableГость_комната">
+        <xs:element name="Гость_комната" msprop:Generator_RowEvHandlerName="Гость_комнатаRowChangeEventHandler" msprop:Generator_RowDeletedName="Гость_комнатаRowDeleted" msprop:Generator_RowDeletingName="Гость_комнатаRowDeleting" msprop:Generator_RowEvArgName="Гость_комнатаRowChangeEvent" msprop:Generator_TablePropName="Гость_комната" msprop:Generator_RowChangedName="Гость_комнатаRowChanged" msprop:Generator_UserTableName="Гость_комната" msprop:Generator_RowChangingName="Гость_комнатаRowChanging" msprop:Generator_RowClassName="Гость_комнатаRow" msprop:Generator_TableClassName="Гость_комнатаDataTable" msprop:Generator_TableVarName="tableГость_комната">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id" msdata:AutoIncrementSeed="1" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" />
-              <xs:element name="id_гостя" msprop:Generator_UserColumnName="id_гостя" msprop:Generator_ColumnPropNameInTable="id_гостяColumn" msprop:Generator_ColumnPropNameInRow="id_гостя" msprop:Generator_ColumnVarNameInTable="columnid_гостя" type="xs:int" />
-              <xs:element name="Номер_комнаты" msprop:Generator_UserColumnName="Номер_комнаты" msprop:Generator_ColumnPropNameInTable="Номер_комнатыColumn" msprop:Generator_ColumnPropNameInRow="Номер_комнаты" msprop:Generator_ColumnVarNameInTable="columnНомер_комнаты" type="xs:int" />
+              <xs:element name="id" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" />
+              <xs:element name="id_гостя" msprop:Generator_ColumnPropNameInTable="id_гостяColumn" msprop:Generator_ColumnPropNameInRow="id_гостя" msprop:Generator_UserColumnName="id_гостя" msprop:Generator_ColumnVarNameInTable="columnid_гостя" type="xs:int" />
+              <xs:element name="Номер_комнаты" msprop:Generator_ColumnPropNameInTable="Номер_комнатыColumn" msprop:Generator_ColumnPropNameInRow="Номер_комнаты" msprop:Generator_UserColumnName="Номер_комнаты" msprop:Generator_ColumnVarNameInTable="columnНомер_комнаты" type="xs:int" />
+              <xs:element name="О_госте" msdata:ReadOnly="true" msdata:Expression="Parent(FK_Гость_комната_id_гостя).Инфо" msprop:Generator_ColumnPropNameInRow="О_госте" msprop:Generator_ColumnPropNameInTable="О_гостеColumn" msprop:Generator_ColumnVarNameInTable="columnО_госте" msprop:Generator_UserColumnName="О_госте" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Заказ" msprop:Generator_RowClassName="ЗаказRow" msprop:Generator_RowEvHandlerName="ЗаказRowChangeEventHandler" msprop:Generator_RowDeletedName="ЗаказRowDeleted" msprop:Generator_RowDeletingName="ЗаказRowDeleting" msprop:Generator_RowEvArgName="ЗаказRowChangeEvent" msprop:Generator_TablePropName="Заказ" msprop:Generator_RowChangedName="ЗаказRowChanged" msprop:Generator_UserTableName="Заказ" msprop:Generator_RowChangingName="ЗаказRowChanging" msprop:Generator_TableClassName="ЗаказDataTable" msprop:Generator_TableVarName="tableЗаказ">
+        <xs:element name="Заказ" msprop:Generator_RowEvHandlerName="ЗаказRowChangeEventHandler" msprop:Generator_RowDeletedName="ЗаказRowDeleted" msprop:Generator_RowDeletingName="ЗаказRowDeleting" msprop:Generator_RowEvArgName="ЗаказRowChangeEvent" msprop:Generator_TablePropName="Заказ" msprop:Generator_RowChangedName="ЗаказRowChanged" msprop:Generator_UserTableName="Заказ" msprop:Generator_RowChangingName="ЗаказRowChanging" msprop:Generator_RowClassName="ЗаказRow" msprop:Generator_TableClassName="ЗаказDataTable" msprop:Generator_TableVarName="tableЗаказ">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" />
-              <xs:element name="id_гостя" msprop:Generator_UserColumnName="id_гостя" msprop:Generator_ColumnPropNameInTable="id_гостяColumn" msprop:Generator_ColumnPropNameInRow="id_гостя" msprop:Generator_ColumnVarNameInTable="columnid_гостя" type="xs:int" />
-              <xs:element name="Номер_комнаты" msprop:Generator_UserColumnName="Номер_комнаты" msprop:Generator_ColumnPropNameInTable="Номер_комнатыColumn" msprop:Generator_ColumnPropNameInRow="Номер_комнаты" msprop:Generator_ColumnVarNameInTable="columnНомер_комнаты" type="xs:int" />
-              <xs:element name="id_персонала" msprop:Generator_UserColumnName="id_персонала" msprop:Generator_ColumnPropNameInTable="id_персоналаColumn" msprop:Generator_ColumnPropNameInRow="id_персонала" msprop:Generator_ColumnVarNameInTable="columnid_персонала" type="xs:int" />
-              <xs:element name="Статус_заказа" msprop:Generator_UserColumnName="Статус_заказа" msprop:Generator_ColumnPropNameInTable="Статус_заказаColumn" msprop:Generator_ColumnPropNameInRow="Статус_заказа" msprop:Generator_ColumnVarNameInTable="columnСтатус_заказа">
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" />
+              <xs:element name="id_гостя" msprop:Generator_ColumnPropNameInTable="id_гостяColumn" msprop:Generator_ColumnPropNameInRow="id_гостя" msprop:Generator_UserColumnName="id_гостя" msprop:Generator_ColumnVarNameInTable="columnid_гостя" type="xs:int" />
+              <xs:element name="Номер_комнаты" msprop:Generator_ColumnPropNameInTable="Номер_комнатыColumn" msprop:Generator_ColumnPropNameInRow="Номер_комнаты" msprop:Generator_UserColumnName="Номер_комнаты" msprop:Generator_ColumnVarNameInTable="columnНомер_комнаты" type="xs:int" />
+              <xs:element name="id_персонала" msprop:Generator_ColumnPropNameInTable="id_персоналаColumn" msprop:Generator_ColumnPropNameInRow="id_персонала" msprop:Generator_UserColumnName="id_персонала" msprop:Generator_ColumnVarNameInTable="columnid_персонала" type="xs:int" />
+              <xs:element name="Статус_заказа" msprop:Generator_ColumnPropNameInTable="Статус_заказаColumn" msprop:Generator_ColumnPropNameInRow="Статус_заказа" msprop:Generator_UserColumnName="Статус_заказа" msprop:Generator_ColumnVarNameInTable="columnСтатус_заказа">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Имя_гостя" msdata:ReadOnly="true" msdata:Expression="Parent(FK_Заказ_id_гостя).ФИО" msprop:Generator_UserColumnName="Имя_гостя" msprop:Generator_ColumnPropNameInTable="Имя_гостяColumn" msprop:Generator_ColumnPropNameInRow="Имя_гостя" msprop:Generator_ColumnVarNameInTable="columnИмя_гостя" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Комната" msprop:Generator_RowClassName="КомнатаRow" msprop:Generator_RowEvHandlerName="КомнатаRowChangeEventHandler" msprop:Generator_RowDeletedName="КомнатаRowDeleted" msprop:Generator_RowDeletingName="КомнатаRowDeleting" msprop:Generator_RowEvArgName="КомнатаRowChangeEvent" msprop:Generator_TablePropName="Комната" msprop:Generator_RowChangedName="КомнатаRowChanged" msprop:Generator_UserTableName="Комната" msprop:Generator_RowChangingName="КомнатаRowChanging" msprop:Generator_TableClassName="КомнатаDataTable" msprop:Generator_TableVarName="tableКомната">
+        <xs:element name="Комната" msprop:Generator_RowEvHandlerName="КомнатаRowChangeEventHandler" msprop:Generator_RowDeletedName="КомнатаRowDeleted" msprop:Generator_RowDeletingName="КомнатаRowDeleting" msprop:Generator_RowEvArgName="КомнатаRowChangeEvent" msprop:Generator_TablePropName="Комната" msprop:Generator_RowChangedName="КомнатаRowChanged" msprop:Generator_UserTableName="Комната" msprop:Generator_RowChangingName="КомнатаRowChanging" msprop:Generator_RowClassName="КомнатаRow" msprop:Generator_TableClassName="КомнатаDataTable" msprop:Generator_TableVarName="tableКомната">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Номер_комнаты" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="100" msprop:Generator_UserColumnName="Номер_комнаты" msprop:Generator_ColumnPropNameInTable="Номер_комнатыColumn" msprop:Generator_ColumnPropNameInRow="Номер_комнаты" msprop:Generator_ColumnVarNameInTable="columnНомер_комнаты" type="xs:int" />
-              <xs:element name="id_гостя" msprop:Generator_UserColumnName="id_гостя" msprop:Generator_ColumnPropNameInTable="id_гостяColumn" msprop:Generator_ColumnPropNameInRow="id_гостя" msprop:Generator_ColumnVarNameInTable="columnid_гостя" type="xs:int" minOccurs="0" />
-              <xs:element name="ФИО_арендатора" msprop:Generator_UserColumnName="ФИО_арендатора" msprop:Generator_ColumnPropNameInTable="ФИО_арендатораColumn" msprop:Generator_ColumnPropNameInRow="ФИО_арендатора" msprop:Generator_ColumnVarNameInTable="columnФИО_арендатора" minOccurs="0">
+              <xs:element name="Номер_комнаты" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="100" msprop:Generator_ColumnPropNameInTable="Номер_комнатыColumn" msprop:Generator_ColumnPropNameInRow="Номер_комнаты" msprop:Generator_UserColumnName="Номер_комнаты" msprop:Generator_ColumnVarNameInTable="columnНомер_комнаты" type="xs:int" />
+              <xs:element name="id_гостя" msprop:Generator_ColumnPropNameInTable="id_гостяColumn" msprop:Generator_ColumnPropNameInRow="id_гостя" msprop:Generator_UserColumnName="id_гостя" msprop:Generator_ColumnVarNameInTable="columnid_гостя" type="xs:int" minOccurs="0" />
+              <xs:element name="ФИО_арендатора" msprop:Generator_ColumnPropNameInTable="ФИО_арендатораColumn" msprop:Generator_ColumnPropNameInRow="ФИО_арендатора" msprop:Generator_UserColumnName="ФИО_арендатора" msprop:Generator_ColumnVarNameInTable="columnФИО_арендатора" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Изображение" msprop:Generator_UserColumnName="Изображение" msprop:Generator_ColumnPropNameInTable="ИзображениеColumn" msprop:Generator_ColumnPropNameInRow="Изображение" msprop:Generator_ColumnVarNameInTable="columnИзображение" type="xs:base64Binary" minOccurs="0" />
-              <xs:element name="Тип_комнаты" msprop:Generator_UserColumnName="Тип_комнаты" msprop:Generator_ColumnPropNameInTable="Тип_комнатыColumn" msprop:Generator_ColumnPropNameInRow="Тип_комнаты" msprop:Generator_ColumnVarNameInTable="columnТип_комнаты">
+              <xs:element name="Изображение" msprop:Generator_ColumnPropNameInTable="ИзображениеColumn" msprop:Generator_ColumnPropNameInRow="Изображение" msprop:Generator_UserColumnName="Изображение" msprop:Generator_ColumnVarNameInTable="columnИзображение" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Тип_комнаты" msprop:Generator_ColumnPropNameInTable="Тип_комнатыColumn" msprop:Generator_ColumnPropNameInRow="Тип_комнаты" msprop:Generator_UserColumnName="Тип_комнаты" msprop:Generator_ColumnVarNameInTable="columnТип_комнаты">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Статус_комнаты" msprop:Generator_UserColumnName="Статус_комнаты" msprop:Generator_ColumnPropNameInTable="Статус_комнатыColumn" msprop:Generator_ColumnPropNameInRow="Статус_комнаты" msprop:Generator_ColumnVarNameInTable="columnСтатус_комнаты">
+              <xs:element name="Статус_комнаты" msprop:Generator_ColumnPropNameInTable="Статус_комнатыColumn" msprop:Generator_ColumnPropNameInRow="Статус_комнаты" msprop:Generator_UserColumnName="Статус_комнаты" msprop:Generator_ColumnVarNameInTable="columnСтатус_комнаты">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="15" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Название_обслуживающей_организации" msprop:Generator_UserColumnName="Название_обслуживающей_организации" msprop:Generator_ColumnPropNameInTable="Название_обслуживающей_организацииColumn" msprop:Generator_ColumnPropNameInRow="Название_обслуживающей_организации" msprop:Generator_ColumnVarNameInTable="columnНазвание_обслуживающей_организации">
+              <xs:element name="Название_обслуживающей_организации" msprop:Generator_ColumnPropNameInTable="Название_обслуживающей_организацииColumn" msprop:Generator_ColumnPropNameInRow="Название_обслуживающей_организации" msprop:Generator_UserColumnName="Название_обслуживающей_организации" msprop:Generator_ColumnVarNameInTable="columnНазвание_обслуживающей_организации">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Частота_уборки" msprop:Generator_UserColumnName="Частота_уборки" msprop:Generator_ColumnPropNameInTable="Частота_уборкиColumn" msprop:Generator_ColumnPropNameInRow="Частота_уборки" msprop:Generator_ColumnVarNameInTable="columnЧастота_уборки" type="xs:decimal" />
-              <xs:element name="Услуга_все_включено" msprop:Generator_UserColumnName="Услуга_все_включено" msprop:Generator_ColumnPropNameInTable="Услуга_все_включеноColumn" msprop:Generator_ColumnPropNameInRow="Услуга_все_включено" msprop:Generator_ColumnVarNameInTable="columnУслуга_все_включено" type="xs:boolean" />
+              <xs:element name="Частота_уборки" msprop:Generator_ColumnPropNameInTable="Частота_уборкиColumn" msprop:Generator_ColumnPropNameInRow="Частота_уборки" msprop:Generator_UserColumnName="Частота_уборки" msprop:Generator_ColumnVarNameInTable="columnЧастота_уборки" type="xs:decimal" />
+              <xs:element name="Услуга_все_включено" msprop:Generator_ColumnPropNameInTable="Услуга_все_включеноColumn" msprop:Generator_ColumnPropNameInRow="Услуга_все_включено" msprop:Generator_UserColumnName="Услуга_все_включено" msprop:Generator_ColumnVarNameInTable="columnУслуга_все_включено" type="xs:boolean" />
+              <xs:element name="О_госте" msdata:ReadOnly="true" msdata:Expression="Parent(FK_Гость_комната_Номер_комнаты).О_госте" msprop:Generator_ColumnPropNameInRow="О_госте" msprop:Generator_ColumnPropNameInTable="О_гостеColumn" msprop:Generator_ColumnVarNameInTable="columnО_госте" msprop:Generator_UserColumnName="О_госте" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Персонал" msprop:Generator_RowClassName="ПерсоналRow" msprop:Generator_RowEvHandlerName="ПерсоналRowChangeEventHandler" msprop:Generator_RowDeletedName="ПерсоналRowDeleted" msprop:Generator_RowDeletingName="ПерсоналRowDeleting" msprop:Generator_RowEvArgName="ПерсоналRowChangeEvent" msprop:Generator_TablePropName="Персонал" msprop:Generator_RowChangedName="ПерсоналRowChanged" msprop:Generator_UserTableName="Персонал" msprop:Generator_RowChangingName="ПерсоналRowChanging" msprop:Generator_TableClassName="ПерсоналDataTable" msprop:Generator_TableVarName="tableПерсонал">
+        <xs:element name="Персонал" msprop:Generator_RowEvHandlerName="ПерсоналRowChangeEventHandler" msprop:Generator_RowDeletedName="ПерсоналRowDeleted" msprop:Generator_RowDeletingName="ПерсоналRowDeleting" msprop:Generator_RowEvArgName="ПерсоналRowChangeEvent" msprop:Generator_TablePropName="Персонал" msprop:Generator_RowChangedName="ПерсоналRowChanged" msprop:Generator_UserTableName="Персонал" msprop:Generator_RowChangingName="ПерсоналRowChanging" msprop:Generator_RowClassName="ПерсоналRow" msprop:Generator_TableClassName="ПерсоналDataTable" msprop:Generator_TableVarName="tableПерсонал">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" />
-              <xs:element name="ФИО" msprop:Generator_UserColumnName="ФИО" msprop:Generator_ColumnPropNameInTable="ФИОColumn" msprop:Generator_ColumnPropNameInRow="ФИО" msprop:Generator_ColumnVarNameInTable="columnФИО">
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" />
+              <xs:element name="ФИО" msprop:Generator_ColumnPropNameInTable="ФИОColumn" msprop:Generator_ColumnPropNameInRow="ФИО" msprop:Generator_UserColumnName="ФИО" msprop:Generator_ColumnVarNameInTable="columnФИО">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Пол" msprop:Generator_UserColumnName="Пол" msprop:Generator_ColumnPropNameInTable="ПолColumn" msprop:Generator_ColumnPropNameInRow="Пол" msprop:Generator_ColumnVarNameInTable="columnПол">
+              <xs:element name="Пол" msprop:Generator_ColumnPropNameInTable="ПолColumn" msprop:Generator_ColumnPropNameInRow="Пол" msprop:Generator_UserColumnName="Пол" msprop:Generator_ColumnVarNameInTable="columnПол">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Зарплата" msprop:Generator_UserColumnName="Зарплата" msprop:Generator_ColumnPropNameInTable="ЗарплатаColumn" msprop:Generator_ColumnPropNameInRow="Зарплата" msprop:Generator_ColumnVarNameInTable="columnЗарплата" type="xs:decimal" />
-              <xs:element name="Должность" msprop:Generator_UserColumnName="Должность" msprop:Generator_ColumnPropNameInTable="ДолжностьColumn" msprop:Generator_ColumnPropNameInRow="Должность" msprop:Generator_ColumnVarNameInTable="columnДолжность">
+              <xs:element name="Зарплата" msprop:Generator_ColumnPropNameInTable="ЗарплатаColumn" msprop:Generator_ColumnPropNameInRow="Зарплата" msprop:Generator_UserColumnName="Зарплата" msprop:Generator_ColumnVarNameInTable="columnЗарплата" type="xs:decimal" />
+              <xs:element name="Должность" msprop:Generator_ColumnPropNameInTable="ДолжностьColumn" msprop:Generator_ColumnPropNameInRow="Должность" msprop:Generator_UserColumnName="Должность" msprop:Generator_ColumnVarNameInTable="columnДолжность">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Трудовой_стаж" msprop:Generator_UserColumnName="Трудовой_стаж" msprop:Generator_ColumnPropNameInTable="Трудовой_стажColumn" msprop:Generator_ColumnPropNameInRow="Трудовой_стаж" msprop:Generator_ColumnVarNameInTable="columnТрудовой_стаж">
+              <xs:element name="Трудовой_стаж" msprop:Generator_ColumnPropNameInTable="Трудовой_стажColumn" msprop:Generator_ColumnPropNameInRow="Трудовой_стаж" msprop:Generator_UserColumnName="Трудовой_стаж" msprop:Generator_ColumnVarNameInTable="columnТрудовой_стаж">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Инфо_о_сотруднике" msdata:ReadOnly="true" msdata:Expression="ФИО+' - '+Должность" msprop:Generator_ColumnPropNameInRow="Инфо_о_сотруднике" msprop:Generator_ColumnPropNameInTable="Инфо_о_сотрудникеColumn" msprop:Generator_ColumnVarNameInTable="columnИнфо_о_сотруднике" msprop:Generator_UserColumnName="Инфо_о_сотруднике" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -469,7 +474,11 @@ SELECT id, ФИО, Пол, Зарплата, Должность, Трудово�
     </xs:unique>
     <xs:unique name="Гость_комната_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Гость_комната" />
-      <xs:field xpath="mstns:id" />
+      <xs:field xpath="mstns:id_гостя" />
+    </xs:unique>
+    <xs:unique name="Constraint2">
+      <xs:selector xpath=".//mstns:Гость_комната" />
+      <xs:field xpath="mstns:Номер_комнаты" />
     </xs:unique>
     <xs:unique name="Заказ_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Заказ" />
@@ -487,10 +496,10 @@ SELECT id, ФИО, Пол, Зарплата, Должность, Трудово�
   <xs:annotation>
     <xs:appinfo>
       <msdata:Relationship name="FK_Гость_комната_id_гостя" msdata:parent="Гость" msdata:child="Гость_комната" msdata:parentkey="id" msdata:childkey="id_гостя" msprop:Generator_UserParentTable="Гость" msprop:Generator_UserChildTable="Гость_комната" msprop:Generator_RelationVarName="relationFK_Гость_комната_id_гостя" msprop:Generator_ChildPropName="GetГость_комнатаRows" msprop:Generator_UserRelationName="FK_Гость_комната_id_гостя" msprop:Generator_ParentPropName="ГостьRow" />
-      <msdata:Relationship name="FK_Гость_комната_Номер_комнаты" msdata:parent="Комната" msdata:child="Гость_комната" msdata:parentkey="Номер_комнаты" msdata:childkey="Номер_комнаты" msprop:Generator_UserParentTable="Комната" msprop:Generator_UserChildTable="Гость_комната" msprop:Generator_RelationVarName="relationFK_Гость_комната_Номер_комнаты" msprop:Generator_ChildPropName="GetГость_комнатаRows" msprop:Generator_ParentPropName="КомнатаRow" msprop:Generator_UserRelationName="FK_Гость_комната_Номер_комнаты" />
       <msdata:Relationship name="FK_Заказ_id_гостя" msdata:parent="Гость" msdata:child="Заказ" msdata:parentkey="id" msdata:childkey="id_гостя" msprop:Generator_UserParentTable="Гость" msprop:Generator_UserChildTable="Заказ" msprop:Generator_RelationVarName="relationFK_Заказ_id_гостя" msprop:Generator_ChildPropName="GetЗаказRows" msprop:Generator_UserRelationName="FK_Заказ_id_гостя" msprop:Generator_ParentPropName="ГостьRow" />
       <msdata:Relationship name="FK_Заказ_id_персонала" msdata:parent="Персонал" msdata:child="Заказ" msdata:parentkey="id" msdata:childkey="id_персонала" msprop:Generator_UserParentTable="Персонал" msprop:Generator_UserChildTable="Заказ" msprop:Generator_RelationVarName="relationFK_Заказ_id_персонала" msprop:Generator_ChildPropName="GetЗаказRows" msprop:Generator_ParentPropName="ПерсоналRow" msprop:Generator_UserRelationName="FK_Заказ_id_персонала" />
       <msdata:Relationship name="FK_Заказ_Номер_комнаты" msdata:parent="Комната" msdata:child="Заказ" msdata:parentkey="Номер_комнаты" msdata:childkey="Номер_комнаты" msprop:Generator_UserParentTable="Комната" msprop:Generator_UserChildTable="Заказ" msprop:Generator_RelationVarName="relationFK_Заказ_Номер_комнаты" msprop:Generator_ChildPropName="GetЗаказRows" msprop:Generator_ParentPropName="КомнатаRow" msprop:Generator_UserRelationName="FK_Заказ_Номер_комнаты" />
+      <msdata:Relationship name="FK_Гость_комната_Номер_комнаты" msdata:parent="Гость_комната" msdata:child="Комната" msdata:parentkey="Номер_комнаты" msdata:childkey="Номер_комнаты" msprop:Generator_UserParentTable="Гость_комната" msprop:Generator_UserChildTable="Комната" msprop:Generator_RelationVarName="relationFK_Гость_комната_Номер_комнаты" msprop:Generator_ChildPropName="GetКомнатаRows" msprop:Generator_ParentPropName="Гость_комнатаRow" msprop:Generator_UserRelationName="FK_Гость_комната_Номер_комнаты" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
