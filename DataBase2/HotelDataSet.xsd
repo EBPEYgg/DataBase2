@@ -357,7 +357,7 @@ SELECT id, ФИО, Пол, Зарплата, Должность, Трудово�
               <xs:element name="Дата_заезда" msprop:Generator_ColumnPropNameInTable="Дата_заездаColumn" msprop:Generator_ColumnPropNameInRow="Дата_заезда" msprop:Generator_UserColumnName="Дата_заезда" msprop:Generator_ColumnVarNameInTable="columnДата_заезда" type="xs:dateTime" />
               <xs:element name="Дата_выезда" msprop:Generator_ColumnPropNameInTable="Дата_выездаColumn" msprop:Generator_ColumnPropNameInRow="Дата_выезда" msprop:Generator_UserColumnName="Дата_выезда" msprop:Generator_ColumnVarNameInTable="columnДата_выезда" type="xs:dateTime" />
               <xs:element name="Номер_телефона" msprop:Generator_ColumnPropNameInTable="Номер_телефонаColumn" msprop:Generator_ColumnPropNameInRow="Номер_телефона" msprop:Generator_UserColumnName="Номер_телефона" msprop:Generator_ColumnVarNameInTable="columnНомер_телефона" type="xs:decimal" />
-              <xs:element name="Инфо" msdata:ReadOnly="true" msdata:Expression="id+' '+ФИО" msprop:Generator_ColumnPropNameInRow="Инфо" msprop:Generator_ColumnPropNameInTable="ИнфоColumn" msprop:Generator_ColumnVarNameInTable="columnИнфо" msprop:Generator_UserColumnName="Инфо" type="xs:string" minOccurs="0" />
+              <xs:element name="Инфо" msdata:ReadOnly="true" msdata:Expression="id+' '+ФИО" msprop:Generator_ColumnPropNameInTable="ИнфоColumn" msprop:Generator_ColumnPropNameInRow="Инфо" msprop:Generator_UserColumnName="Инфо" msprop:Generator_ColumnVarNameInTable="columnИнфо" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -367,7 +367,7 @@ SELECT id, ФИО, Пол, Зарплата, Должность, Трудово�
               <xs:element name="id" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnVarNameInTable="columnid" type="xs:int" />
               <xs:element name="id_гостя" msprop:Generator_ColumnPropNameInTable="id_гостяColumn" msprop:Generator_ColumnPropNameInRow="id_гостя" msprop:Generator_UserColumnName="id_гостя" msprop:Generator_ColumnVarNameInTable="columnid_гостя" type="xs:int" />
               <xs:element name="Номер_комнаты" msprop:Generator_ColumnPropNameInTable="Номер_комнатыColumn" msprop:Generator_ColumnPropNameInRow="Номер_комнаты" msprop:Generator_UserColumnName="Номер_комнаты" msprop:Generator_ColumnVarNameInTable="columnНомер_комнаты" type="xs:int" />
-              <xs:element name="О_госте" msdata:ReadOnly="true" msdata:Expression="Parent(FK_Гость_комната_id_гостя).Инфо" msprop:Generator_ColumnPropNameInRow="О_госте" msprop:Generator_ColumnPropNameInTable="О_гостеColumn" msprop:Generator_ColumnVarNameInTable="columnО_госте" msprop:Generator_UserColumnName="О_госте" type="xs:string" minOccurs="0" />
+              <xs:element name="О_госте" msdata:ReadOnly="true" msdata:Expression="Parent(FK_Гость_комната_id_гостя).Инфо" msprop:Generator_ColumnPropNameInTable="О_гостеColumn" msprop:Generator_ColumnPropNameInRow="О_госте" msprop:Generator_UserColumnName="О_госте" msprop:Generator_ColumnVarNameInTable="columnО_госте" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -385,7 +385,7 @@ SELECT id, ФИО, Пол, Зарплата, Должность, Трудово�
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Имя_гостя" msdata:ReadOnly="true" msdata:Expression="Parent(FK_Заказ_id_гостя).ФИО" msprop:Generator_UserColumnName="Имя_гостя" msprop:Generator_ColumnPropNameInTable="Имя_гостяColumn" msprop:Generator_ColumnPropNameInRow="Имя_гостя" msprop:Generator_ColumnVarNameInTable="columnИмя_гостя" type="xs:string" minOccurs="0" />
+              <xs:element name="Имя_гостя" msdata:ReadOnly="true" msdata:Expression="Parent(FK_Заказ_id_гостя).ФИО" msprop:Generator_ColumnPropNameInTable="Имя_гостяColumn" msprop:Generator_ColumnPropNameInRow="Имя_гостя" msprop:Generator_UserColumnName="Имя_гостя" msprop:Generator_ColumnVarNameInTable="columnИмя_гостя" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -462,7 +462,7 @@ SELECT id, ФИО, Пол, Зарплата, Должность, Трудово�
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Инфо_о_сотруднике" msdata:ReadOnly="true" msdata:Expression="ФИО+' - '+Должность" msprop:Generator_ColumnPropNameInRow="Инфо_о_сотруднике" msprop:Generator_ColumnPropNameInTable="Инфо_о_сотрудникеColumn" msprop:Generator_ColumnVarNameInTable="columnИнфо_о_сотруднике" msprop:Generator_UserColumnName="Инфо_о_сотруднике" type="xs:string" minOccurs="0" />
+              <xs:element name="Инфо_о_сотруднике" msdata:ReadOnly="true" msdata:Expression="ФИО+' - '+Должность" msprop:Generator_ColumnPropNameInTable="Инфо_о_сотрудникеColumn" msprop:Generator_ColumnPropNameInRow="Инфо_о_сотруднике" msprop:Generator_UserColumnName="Инфо_о_сотруднике" msprop:Generator_ColumnVarNameInTable="columnИнфо_о_сотруднике" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

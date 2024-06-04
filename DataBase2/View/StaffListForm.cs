@@ -97,7 +97,7 @@ namespace DataBase2.View
                 MessageBox.Show(idStaff.ToString());
                 idTextBox.Text = idStaff.ToString();
                 StaffBindingSource.EndEdit();
-                StaffTableAdapter.Fill(this.hotelDataSet.Персонал);
+                OrderTableAdapter.Fill(this.hotelDataSet.Заказ);
             }
         }
     }

@@ -211,7 +211,7 @@ namespace DataBase2.View
 
         private void OrderDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            OrderDataGridView.ClearSelection();
+            //OrderDataGridView.ClearSelection();
         }
     }
 }
